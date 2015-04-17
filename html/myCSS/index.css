@@ -1,0 +1,30 @@
+@CHARSET "ISO-8859-1";
+
+.caption {
+    font-family: 'Indie Flower', cursive;
+    font-size: 100px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+ 
+.caption img {
+    float: left;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    border: none;
+}
+ 
+.caption span {
+    float: left;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    color: #6666CC;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

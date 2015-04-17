@@ -1,0 +1,269 @@
+@CHARSET "ISO-8859-1";
+
+/* Scritta Iniziale */
+#project{
+text-align: center;
+margin-top: 0;
+padding-bottom: 10px;
+
+background-color: #29b6f6;
+font-family: Verdana, sans-serif;
+line-height: 1em;
+color: #01579b;
+font-size: 50px;
+text-shadow:0px 0px 0 rgb(237,237,237),1px 1px 0 rgb(229,229,229), 2px 2px 0 rgb(221,221,221),3px 3px 2px rgba(0,0,0,0.05),3px 3px 1px rgba(0,0,0,0.5),0px 0px 2px rgba(0,0,0,.2);
+}
+
+/* Tabella mainArea */
+ #tabs { margin-top: 1em; font-size: 10px;}
+ #tabs li .ui-icon-close { float:left !important; margin: 0.4em 0.2em 0 0 !important; cursor: pointer !important; font-size: 8px;}
+ .addtab{width:100% !important; padding:2px !important; height:34px !important;}
+ .ui-tabs .ui-tabs-nav li {
+ 	width:150px !important;
+ 	 overflow:hidden;
+ 	  padding:2px !important; 
+ 	  height:30px !important;}
+
+ 
+ 
+/* Bottoni Menubar */
+ #menuBar { 
+ margin: 4px;
+ width: 99%; 
+ float: right; 
+ }
+ #Annotator {	float: right;
+				font-family: 'courier new';
+				font-weight: bold;
+				color: #FFFFFF !important;
+				font-size: 11px;
+				text-shadow: 1px 1px 0px #0277bd;
+				box-shadow: 1px 1px 1px white;
+				padding: 5px 15px;
+				-moz-border-radius: 6px;
+				-webkit-border-radius: 6px;
+				border-radius: 6px;
+				border: 2px groove #0277bd;
+				background: #0277bd;
+				background: linear-gradient(top,  #0277bd,  #0277bd);
+				background: -ms-linear-gradient(top,  #0277bd,  #0277bd);
+				background: -webkit-gradient(linear, left top, left bottom, from(#0277bd), to(#039be5));
+				background: -moz-linear-gradient(top,  #0277bd,  #0277bd);
+ }
+ 
+ #Annotator:hover {  color: #FFFFFF !important;
+					  background: #FFFFFF;
+					  background: linear-gradient(top,  #0277bd,  #0277bd);
+					  background: -ms-linear-gradient(top,  #0277bd,  #0277bd);
+					  background: -webkit-gradient(linear, left top, left bottom, from(#01579b), to(#0277bd));
+					  background: -moz-linear-gradient(top,  #0277bd,  #0277bd);
+}
+ 
+ #About {		float: right;
+				font-family: 'courier new';
+				font-weight: bold;
+				color: #FFFFFF !important;
+				font-size: 11px;
+				text-shadow: 1px 1px 0px #0277bd;
+				box-shadow: 1px 1px 1px #0277bd;
+				padding: 5px 15px;
+				-moz-border-radius: 6px;
+				-webkit-border-radius: 6px;
+				border-radius: 6px;
+				border: 2px groove #0277bd;
+				background: #0277bd;
+				background: linear-gradient(top,  #0277bd,  #0277bd);
+				background: -ms-linear-gradient(top,  #0277bd,  #0277bd);
+				background: -webkit-gradient(linear, left top, left bottom, from(#0277bd), to(#039be5));
+				background: -moz-linear-gradient(top,  #0277bd,  #0277bd);
+ }
+ 
+ #About:hover {  color: #FFFFFF !important;
+					  background: #FFFFFF;
+					  background: linear-gradient(top,  #0277bd,  #0277bd);
+					  background: -ms-linear-gradient(top,  #0277bd,  #0277bd);
+					  background: -webkit-gradient(linear, left top, left bottom, from(#01579b), to(#0277bd));
+					  background: -moz-linear-gradient(top,  #0277bd,  #0277bd);
+ }
+ 
+ #Help {		float: right;
+				font-family: 'courier new';
+				font-weight: bold;
+				color: #FFFFFF !important;
+				font-size: 11px;
+				text-shadow: 1px 1px 0px #0277bd;
+				box-shadow: 1px 1px 1px #0277bd;
+				padding: 5px 15px;
+				-moz-border-radius: 6px;
+				-webkit-border-radius: 6px;
+				border-radius: 6px;
+				border: 2px groove #0277bd;
+				background: #0277bd;
+				background: linear-gradient(top,  #0277bd,  #CFCFCF);
+				background: -ms-linear-gradient(top,  #0277bd,  #CFCFCF);
+				background: -webkit-gradient(linear, left top, left bottom, from(#0277bd), to(#039be5));
+				background: -moz-linear-gradient(top,  #0277bd,  #CFCFCF);
+		
+ }
+ 
+ #Help:hover {  color: #FFFFFF !important;
+					  background: #FFFFFF;
+					  background: linear-gradient(top,  #0277bd,  #0277bd);
+					  background: -ms-linear-gradient(top,  #0277bd,  #0277bd);
+					  background: -webkit-gradient(linear, left top, left bottom, from(#01579b), to(#0277bd));
+					  background: -moz-linear-gradient(top,  #0277bd,  #0277bd);}
+ 
+/* CSS layout pagina */
+
+#mainArea{
+	float: right;
+	width: 73%;
+	height: 543px;
+	font-size: 10px;
+	padding: 5px 5px;
+	
+}
+
+.Doc{
+	width: 100%;
+	height: 470px;
+	overflow: scroll;
+	font-size:13px;
+}
+
+.error{
+	color: red;
+	font-weight: bold;
+}
+
+#leftpanel{
+	float: left;
+	width: 25%;
+	height: 545px;
+	font-size: 10px;
+	margin-top:0px;
+	margin-left:1%;
+	
+}
+
+#lista{
+	height: 34px;
+}
+
+#annotazioni{
+	margin: 10px;
+	padding:0px;
+}
+
+#metaArea{
+	height:49%;
+}
+
+#docArea{
+	height: 50%;
+	margin: 4px;
+}
+
+.ui-accordion-content{
+	height:70% !important;
+}
+
+#doclist .ui-selecting { background: #9198AD; font-size: 10px;}
+#doclist .ui-selected { background: #01579b; color: white; font-size: 10px;}
+#doclist { list-style-type: none; margin: 0; padding: 0; width: relative; font-size: 10px;}
+#doclist li {padding:0.4em; font-size: 1.4em; height: 20xpx; width:99%;font-size: 10px;margin-top:3px;}
+
+#docannotation .ui-selecting { background: #9198AD; font-size: 15px;}
+#docannotation .ui-selected { background: #5E6270; color: white; font-size: 15px;}
+#docannotation { list-style-type: none; margin: 0; padding: 0; width: relative; font-size: 10px;}
+#docannotation li {padding:0.4em; font-size: 1.4em; height: 20xpx; width:99%;font-size: 15px;margin-top:3px;}
+
+#login{
+	font-size:12px;
+}
+#login label, #login input { display:block; }
+#login label { margin-top: 5px; }
+#login input { width: 95%; }
+
+.form_dialogs{
+	font-size:12px;
+}
+
+.immagine{
+	height: 25px;
+	width: 25px;
+}
+
+.border {
+	border: solid rgb(220,220,220) 1px;
+	padding: 10px;
+	margin-bottom: 15px; 
+}
+.border-notop {
+	border-top: none;
+}
+
+.breath {
+	margin-top: 15px;
+}
+
+.edit-sentence {
+	padding: 2px;
+	border: dotted #d58512; 3px;			
+}
+.edit-denotesPlace {
+	background-color: #7be0fe;	
+	color: white;		
+}
+.edit-sub {
+	background-color: #77d477;			
+	color: white;		
+}
+
+.yo{
+	background-color: #81d4fa	;
+}
+
+.ui-widget-header {
+border: 1px solid black	;
+background: #01579b;
+font-weight: bold;
+color: white;
+}
+
+.ui-widget-content {
+border: 1px solid #aaaaaa;
+background: #e1f5fe;
+color: black;
+}
+
+.ui-autocomplete {
+		max-height: 100px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+		background: white;
+	}
+#auto_doc{
+	width:100%;
+	height:auto;
+}
+.ui-menu-item {
+	font-size: 12px;
+}
+
+#active_doc{
+	text-align: justify;
+	font-style: italic;
+}
+
+#metadiv1{
+	height:150px;
+	overflow: auto;
+}
+
+#metadiv2{
+	position: absolute;
+	bottom:0px;
+}
+

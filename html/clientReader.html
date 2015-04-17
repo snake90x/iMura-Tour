@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="otaria.png" type="image/png">
+	<link rel="icon" href="favicon.ico">
+	<meta charset="utf-8">
+	<title>AnnOtaria</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="Jquerylib/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="jats-preview.css" id="s864k6757">
+	<link rel="stylesheet" type="text/css" href="myCSS/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="myCSS/readerCSS.css"/>	
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<script src="Jquerylib/jquery-1.10.2.js"></script>
+    <script src="Jquerylib/jquery-ui.js"></script>
+    <script src="Jquerylib/Server.js"></script>
+    <script src="Jquerylib/menuBar.js"></script>
+    <script src="Jquerylib/metaArea.js"></script>
+    <script src="Jquerylib/mainArea.js"></script>
+    <script src="Jquerylib/docArea.js"></script>
+    <script src="Jquerylib/cookies.js"></script>
+    <script src="Jquerylib/menu.js"></script>
+</head>
+<body class="yo">
+	<div id="project">
+		<label>Ann Otaria</label>
+	</div>
+		<div id="form_document" class="form_dialogs" title="Annotazioni sul documento">
+			<form id="formDoc">
+				<fieldset class="ui-helper-reset">
+					<span id="errormsg" class="error"></span></br>
+					<label for="tab_title">Autore</label>
+					<select id="hasAuthor" onChange="addCategory(this.options[this.selectedIndex].text,this.id)">
+					</select><br>
+					<label for="tab_title">Editore</label>
+					<select id="hasPublisher" onChange="addCategory(this.options[this.selectedIndex].text,this.id)">
+					</select><br>
+					<label for="tab_title">Anno di pubblicazione</label>
+					<input type="number" name="PublicationYear" id="hasPublicationYear" min="1400" required></br>
+					<label for="tab_title">Titolo</label>
+					<textarea name="Title" id="hasTitle" placeholder="Titolo" required></textarea></br>
+					<label for="tab_title">Abstract</label>
+					<textarea name="Abstract" id="hasAbstract" placeholder="Abstract" required></textarea></br>
+					<label for="tab_title">Titoletto</label>
+					<input type="text" name="ShortTitle" id="hasShortTitle" placeholder="Titoletto" maxlength="80" required>
+					<label for="tab_title">Commento</label>
+					<textarea name="Comment" id="DochasComment" placeholder="Commento" required></textarea>
+				</fieldset>
+			</form>
+		</div>
+		<div id="form_denotes" class="form_dialogs" title="Annotazione entità">
+			<form id="formEnt">
+				<fieldset class="ui-helper-reset" id="field">
+					<span id="errormsg1" class="error"></span></br>
+					<label for="tab_title">Categoria</label>
+					<select onChange="GetLinguaggi(this.options[this.selectedIndex].text)" id="denotazione">
+					</select><br>
+					<label for="tab_title">Cosa?</label>
+					<select id="Info" onChange="newSubject(this.options[this.selectedIndex].text)"></select><br>
+				</fieldset>
+			</form>
+		</div>
+		<div id="form_hasSubject" class="form_dialogs" title="Seleziona un argomento">
+			<form id="formArg">
+				<fieldset class="ui-helper-reset">
+					<span id="errormsg2" class="error"></span></br>
+					<select id="subject" value="hasSubject" onChange="addCategory(this.options[this.selectedIndex].text,this.id)">
+					</select><br>
+				</fieldset>
+			</form>
+		</div>
+		<div id="form_relatesTo" class="form_dialogs" title="Aggiungere Risorsa DBpedia">
+			<form id="formDBp">
+				<fieldset class="ui-helper-reset">
+					<span id="errormsg3" class="error"></span></br>
+					<label for="tab_title">Inserire link</label><br>
+					<input type="text" name="relatesTo" id="linkDB" placeholder="link" required>
+				</fieldset>
+			</form>
+		</div>
+		<div id="form_hasClarityScore" class="form_dialogs" title="Valuta il paragrafo">
+			<form id="formVal">
+				<fieldset class="ui-helper-reset">
+					<span id="errormsg4" class="error"></span></br>
+					<label for="tab_title">Chiarezza</label><br>
+					<input type="radio" name="hasClarityScore" value="Very poor"required> Very poor
+					<input type="radio" name="hasClarityScore" value="Poor"     required> Poor
+					<input type="radio" name="hasClarityScore" value="Fair"     required> Fair
+					<input type="radio" name="hasClarityScore" value="Good"     required> Good
+					<input type="radio" name="hasClarityScore" value="Excelent" required> Excelent <br>
+					<label for="tab_title">Originalità</label><br>
+					<input type="radio" name="hasOriginalityScore" value="Very poor" required> Very poor
+					<input type="radio" name="hasOriginalityScore" value="Poor" required> Poor
+					<input type="radio" name="hasOriginalityScore" value="Fair" required> Fair
+					<input type="radio" name="hasOriginalityScore" value="Good" required> Good
+					<input type="radio" name="hasOriginalityScore" value="Excelent" required> Excelent <br>
+					<label for="tab_title">Presentazione</label><br>
+					<input type="radio" name="hasFormattingScore" value="Very poor" required> Very poor
+					<input type="radio" name="hasFormattingScore" value="Poor" required> Poor
+					<input type="radio" name="hasFormattingScore" value="Fair" required> Fair
+					<input type="radio" name="hasFormattingScore" value="Good" required> Good
+					<input type="radio" name="hasFormattingScore" value="Excelent" required> Excelent <br>
+				</fieldset>
+			</form>
+		</div>
+		<div id="form_cites" class="form_dialogs" title="Inserisci una citazione">
+			<form id="formCit">
+				<fieldset class="ui-helper-reset">
+					<span id="errormsg5" class="error"></span></br>
+					<label>Documento contenente la citazione:</label><br><span id="active_doc"></span><br><br>
+					<input id="auto_doc" name="cites" placeholder="documento citato">
+				</fieldset>
+			</form>
+		</div>
+		<div id="form_hasComment" class="form_dialogs" title="Inserisci un commento">
+			<form id="formCom">
+				<fieldset class="ui-helper-reset">
+					<span id="errormsg6" class="error"></span></br>
+					<textarea name="frag_hasComment" id="hasComment" placeholder="Commento (Max 120 Caratteri)" maxlength="120" required></textarea>
+				</fieldset>
+			</form>
+		</div>
+		<div id="login" title="Login">
+		<form id="forLogin">
+			<fieldset class="ui-helper-reset">
+				<span id="errormsg7" class="error"></span></br>
+				<label for="tab_title">Name</label>
+				<input type="text" name="username" id="name" placeholder="Name" required></br>
+				<label for="tab_title">Surname</label>
+				<input type="text" name="username" id="surname" placeholder="Surname" required></br>
+				<label for="tab_title">email</label>
+				<input type="email" name="email" id="email" placeholder="email@domain.ext" required>
+			</fieldset>
+		</form>
+	</div>
+	<div id="menuBar">
+		<span class="welcomespan"> Benvenuto</span>
+		<button id = "Annotator"> Annotator </button>
+		<button id = "About"> About </button>
+		<button id = "Help"> Help </button>
+	</div>
+	<div id="dialogo" title="About">
+		<h5>Progetto Di Tecnologie Web 2014/2015 <br> Francesco Negretti <br>Emanuele Pagliara <br>Giovanni Ricucci <br>Giulio Guaraldi</h5>
+	</div>
+	<div id="leftpanel">
+		<div id="docArea">
+			<h3>Document List</h3>
+			<div>
+				<ul id="doclist"></ul>	
+			</div>
+			<h3 id="ann_title">Annotazioni sul documento</h3>
+			<div>
+				<ul id="docannotation">
+					<li class='ui-widget-content' id='document'>Documento</li> <!-- window da compilare, genera un annotazione complessa -->
+					<li class='ui-widget-content' id='denotes'>Annotazione entità</li> <!-- choice sul tipo di denotes tramite select che porterà a un select diverso, se la voce non è presente apre un input che aggiungerà la voce nella sezione corretta, genera l'annotazione semplice appropriata-->
+					<li class='ui-widget-content' id='hasSubject'>Argomento</li>
+					<li class='ui-widget-content' id='relatesTo'>DBPedia</li>
+					<li class='ui-widget-content' id='hasClarityScore'>Valuta</li> <!-- apre un widget in cui vengono assegnati tre punteggi tramite un choice, genera un annotazione complessa -->
+					<li class='ui-widget-content' id='cites'>Citazione</li>
+					<li class='ui-widget-content' id='hasComment'>Commento</li> <!-- sul frammento, sul documento è inserito nella prima voce -->
+				</ul>
+			</div>
+		</div>		
+		<div id="metaArea">
+			<ul id="lista">
+				<li><a href="#annotazioni" data-toggle="tab" id="showView">Filtro Annotazioni</a></li>
+			</ul>
+			<div id="annotazioni">
+				<ul id="ann_list"></ul>
+				<form role="form">
+					<div class="checkbox"><label>
+						<input type="checkbox" id="place">Frasi principali</label>
+					</div>
+					<div class="checkbox"><label>
+						<input type="checkbox" id="sub">Frasi secondarie</label>
+					</div>
+					<div class="form-group"><label>Scegli la frase:</label>
+						<input type="number" id="sentence" name="sentence" min="0" max="10" value="0">
+					</div>
+				</form>
+			</div>
+		</div>		
+	</div>
+	<div id="mainArea">
+		<ul class="addtab">
+		</ul>
+	</div>
+    
+</body>
+</html>
