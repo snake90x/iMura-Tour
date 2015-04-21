@@ -11,30 +11,30 @@
 	<script src="js/mainArea.js"></script>
 </head>
 <body>
-	<div id="menuBar"> <!-- Inizio div menuBar -->
+	<div id="menuBar">
 		<span class="welcomespan"> Benvenuto</span>
-		<!-- Inserire searchBar -->
+		<!-- searchBar -->
 		<button id = "Annotator"> Annotator </button>
 		<button id = "About"> About </button>
 		<button id = "Help"> Help </button>
-	</div> <!-- Fine div di menuBar -->
+	</div>
 	<div id="leftpanel">
-		<div id="docArea" class="panel-group"> <!-- Inizio div docArea -->
-		    <div class="panel panel-default">
-	            	<div class="panel-heading"> <!-- Div panel Lista Documenti -->
+		<div id="docArea" class="panel-group">
+			<div class="panel panel-default">
+	            <div class="panel-heading">
 	                <h4 class="panel-title">
 	                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Lista Documenti</a>
 	                </h4>
 	            </div>
 	            <div id="collapseOne" class="panel-collapse collapse in">
 	                <div class="panel-body">
-	                	<a href="#" id="btnAdd"><i class="icon-plus-sign-alt"></i> Add Tab</a> <!-- Link vuoto per inserire tab -->
-	                    <p>Qui inseriremo il selectable con la lista dei documenti</p>
+	                	<a href="#" id="btnAdd"><i class="icon-plus-sign-alt"></i> Add Tab</a>
+	                    <p>qui inseriremo il selectable con la lista dei documenti</p>
 	                </div>
 	            </div>
 	        </div>
 	        <div class="panel panel-default">
-	            <div class="panel-heading"> <!-- Div panel Annotazioni sul documento -->
+	            <div class="panel-heading">
 	                <h4 class="panel-title">
 	                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Annotazioni sul Documento</a>
 	                </h4>
@@ -46,20 +46,20 @@
 	            </div>
 	        </div>
 	        <div class="panel panel-default">
-	            <div class="panel-heading"> <!-- Div panel Annotazioni sul frammento -->
+	            <div class="panel-heading">
 	                <h4 class="panel-title">
 	                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Annotazioni sul Frammento</a>
 	                </h4>
 	            </div>
 	            <div id="collapseThree" class="panel-collapse collapse">
 	                <div class="panel-body">
-	                    <p>Selectable lista annotazioni sul frammento</p>
+	                    <p>Selectable lista snnotazioni sul frammento</p>
 	                </div>
 	            </div>
 	        </div>
-	</div> <!-- Fine div docArea -->
-		<div id="metaArea"> <!-- Inizio div metaArea -->
-			<ul class="nav nav-tabs"> <!-- Div delle tab -->
+		</div>		
+		<div id="metaArea">
+			<ul class="nav nav-tabs">
 				<li class="active"><a data-toggle="tab" href="#filtro">Filtro Annotazioni</a></li>
 				<li><a data-toggle="tab" href="#nuove_ann">Nuove annotazioni</a></li>
 				<li class="dropdown">
@@ -70,7 +70,7 @@
 					</ul>
 				</li>
 			</ul>
-			<div class="tab-content"> <!-- Div del contenuto delle tab -->
+			<div class="tab-content">
 				<div id="filtro" class="tab-pane fade in active">
 					<p>Filtri</p>
 				</div>
@@ -87,14 +87,15 @@
 				</div>
 			</div>
 		</div>		
-	</div> <!-- Fine div metaArea -->
-		<div id="mainArea"> <!-- Inizio div mainArea -->
-	    	     <ul class="nav nav-tabs" id="tabs">
-	             <li class="active"><a href="#tab1"><h6>Tab 1</h6></a><span><h6>x</h6></span></li>
-	        </ul>
-	        <div class="tab-content" id="contentmain">
-	            <div class="tab-pane active" id="tab1">Documento Default</div>
-	        </div>
-	</div> <!-- Fine div mainArea -->
+	</div>
+	<div id="mainArea">
+	    <ul class="nav nav-tabs" id="tabs">
+	        <li class="active"><a href="#tab1"><h6>Tab 1</h6></a><span><h6>x</h6></span></li>
+	    </ul>
+	    <div class="tab-content" id="contentmain">
+	        <div class="tab-pane active" id="tab1">Documento Default</div>
+	    </div>
+	</div>
+
 </body>
 </html>
