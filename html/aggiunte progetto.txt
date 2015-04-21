@@ -1,0 +1,10 @@
+mettere logo del progetto.
+cercare informazioni ulteriori su uno o più concetti nel documento
+filtrare le annotazioni: per tipo, autore e data
+modificare metaArea: class="metadata two-column table"
+creare annotazioni sull'intero documento, tramite widget specifico. Sono possibili annotazioni multiple, visualizzabili per data.
+aggiungere tasto annulla per eliminare le annotazioni non ancora salvate, modificare informazioni sull'annotazione non salvata(solo valore),visualizzare annotazioni da salvare, forma tabellare.
+annotazioni complesse?(soggetto+predicato+oggetto)
+aggiungere tooltip su annotazioni
+risolvere problema selezione del più piccolo elemento selezionabile
+ciao

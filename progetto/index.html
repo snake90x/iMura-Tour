@@ -1,0 +1,79 @@
+<html>
+	<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+$(document).ready(function(){
+	
+		console.log("porcodio")
+	});
+/*
+$( ".typeAnnotationFrag" ).click(function() {
+	var annotationClass="doc";
+	var doc;
+  alert( "Handler for .click() called." );
+});
+$( ".typeAnnotationDoc" ).click(function() {
+	var annotationClass="frag";
+	var type;
+	var doc;
+  alert( "Handler for .click() called." );
+});
+*/
+
+var annotationClass="doc";
+var doc="BMC_Bioinformatics_2008_Oct_1_9_406_ver1.html";
+var type="hasAuthor";
+alert(doc);
+	$.ajax({
+		method: 'GET',
+		url: "server2.php",
+		data:"type="+type+"&Doc="+doc+"&annotationClass="+annotationClass,
+		dataType: 'JSON',
+		//data:"{'type':"+type+",'Doc':"+doc+",'annotationClass':"+annotationClass+"}",
+	success: function(data){
+		console.log(JSON.stringify(data.rows));
+		console.log("PORCODICODIO");
+		
+
+		
+
+	},
+	error: function(a,b,c){
+		alert("NON VA CAZZO");
+	} 
+
+	});
+
+	/*$.ajax({
+		method: 'GET',
+		url: "server2.php",
+		dataType: 'json',
+	success: function(data){
+		var a=data.rows
+		console.log(JSON.stringify(a));
+
+		
+
+	},
+	error: function(a,b,c){
+		alert("error");
+	} 
+
+	});*/
+
+	</script>
+
+	</head>
+
+
+
+</html>
+
+<!-- 	QUESTO E' IL TEMPLATE DEL FRAMMENTO
+[{	"label":{"type":"literal","value":"Commento Personale"},
+	"tipo":{"type":"literal","value":"hasComment"},
+	"data":{"type":"literal","value":"2014-10-31T14:50"},
+	"nomeAnnotatore":{"type":"literal","value":"Abraham Peliowski"},
+	"dato":{"type":"literal","value":"bello"},
+	"start":{"type":"literal","value":"0","datatype":"http://www.w3.org/2001/XMLSchema#integer"},
+	"end":{"type":"literal","value":"114","datatype":"http://www.w3.org/2001/XMLSchema#integer"}}-->
