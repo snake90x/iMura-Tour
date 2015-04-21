@@ -1,103 +1,105 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>Raschietto</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="css/readerCSS.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/mainArea.js"></script>
-     <script src="js/menuBar.js"></script>
-</head>
-<body>
-	<div id="menuBar"> <!-- Inizio div menuBar -->
-		<span class="welcomespan"> Benvenuto</span>
-		<!-- Inserire searchBar -->
-		<button id = "Annotator"> Annotator </button>
-		<button id = "About"> About </button>
-		<button id = "Help"> Help </button>
-
-	</div> <!-- Fine div di menuBar -->
-	<div id="leftpanel">
-		<div id="docArea" class="panel-group"> <!-- Inizio div docArea -->
-		    <div class="panel panel-default">
-	            	<div class="panel-heading"> <!-- Div panel Lista Documenti -->
-	                <h4 class="panel-title">
-	                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Lista Documenti</a>
-	                </h4>
-	            </div>
-	            <div id="collapseOne" class="panel-collapse collapse in">
-	                <div class="panel-body">
-	                	<a href="#" id="btnAdd"><i class="icon-plus-sign-alt"></i> Add Tab</a> <!-- Link vuoto per inserire tab -->
-	                    <p>Qui inseriremo il selectable con la lista dei documenti</p>
-	                </div>
-	            </div>
-	        </div>
-	        <div class="panel panel-default">
-	            <div class="panel-heading"> <!-- Div panel Annotazioni sul documento -->
-	                <h4 class="panel-title">
-	                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Annotazioni sul Documento</a>
-	                </h4>
-	            </div>
-	            <div id="collapseTwo" class="panel-collapse collapse">
-	                <div class="panel-body">
-	                    <p>Selectable lista annotazioni sul doc</p>
-	                </div>
-	            </div>
-	        </div>
-	        <div class="panel panel-default">
-	            <div class="panel-heading"> <!-- Div panel Annotazioni sul frammento -->
-	                <h4 class="panel-title">
-	                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Annotazioni sul Frammento</a>
-	                </h4>
-	            </div>
-	            <div id="collapseThree" class="panel-collapse collapse">
-	                <div class="panel-body">
-	                    <p>Selectable lista annotazioni sul frammento</p>
-	                </div>
-	            </div>
-	        </div>
-	</div> <!-- Fine div docArea -->
-		<div id="metaArea"> <!-- Inizio div metaArea -->
-			<ul class="nav nav-tabs"> <!-- Div delle tab -->
-				<li class="active"><a data-toggle="tab" href="#filtro">Filtro Annotazioni</a></li>
-				<li><a data-toggle="tab" href="#nuove_ann">Nuove annotazioni</a></li>
-				<li class="dropdown">
-					<a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a data-toggle="tab" href="#dropdown1">Dropdown1</a></li>
-						<li><a data-toggle="tab" href="#dropdown2">Dropdown2</a></li>
-					</ul>
-				</li>
-			</ul>
-			<div class="tab-content"> <!-- Div del contenuto delle tab -->
-				<div id="filtro" class="tab-pane fade in active">
-					<p>Filtri</p>
-				</div>
-				<div id="nuove_ann" class="tab-pane fade">
-					<p>Annotazioni temporanee create dall'utente</p>
-				</div>
-				<div id="dropdown1" class="tab-pane fade">
-					<h3>Dropdown 1</h3>
-					<p>WInteger convallis, nulla in sollicitudin placerat, ligula enim auctor lectus, in mollis diam dolor at lorem. Sed bibendum nibh sit amet dictum feugiat. Vivamus arcu sem, cursus a feugiat ut, iaculis at erat. Donec vehicula at ligula vitae venenatis. Sed nunc nulla, vehicula non porttitor in, pharetra et dolor. Fusce nec velit velit. Pellentesque consectetur eros.</p>
-				</div>
-				<div id="dropdown2" class="tab-pane fade">
-					<h3>Dropdown 2</h3>
-					<p>Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit. Donec at erat magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum laoreet. Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus imperdiet. Cum sociis natoque penatibus et magnis.</p>
-				</div>
-			</div>
-		</div>		
-	</div> <!-- Fine div metaArea -->
-		<div id="mainArea"> <!-- Inizio div mainArea -->
-	    	     <ul class="nav nav-tabs" id="tabs">
-	             <li class="active"><a href="#help" data-toggle="tab"><h6>Tab Help</h6></a><span>X</span></li>
-	        </ul>
-	        <div class="tab-content" id="contentmain">
-	            <div class="tab-pane active" id="help"> <h3>Documento Default </h3><p>Lorem ipsum dolor sit amet, qui ex quis tempor persius, eu per minim accusam, est sumo harum melius id. Invenire appellantur duo no. Dicta scripserit necessitatibus est in, sea ad iriure intellegat reprehendunt, an mazim dicit iuvaret mei. Natum posse albucius vim et, quo putent commune dissentiet ne. Odio detracto mel at, vocibus denique at sed, illud ancillae postulant est an. Cum ne fugit altera postulant, omnesque dignissim cotidieque quo cu. Cu dicant rationibus pri, usu illum alterum patrioque no. Est ut errem scripserit, sed eu tation maluisset. Cum diceret detracto honestatis in. Reque mucius possit ea vel, ex tamquam fabellas evertitur mel. Pro dolorem facilisi id. Nam eius exerci utamur ut. Ne alii aeque recusabo eum, has esse meis ullum id. Ex verear commodo usu, eu oporteat dissentiunt nec. Et soluta animal pri, illum probatus explicari eos et, at his dicat tollit. Falli ceteros eu est, sit omnium verear voluptatum te. Mea diam mucius ea, hinc antiopam vix cu.</p>
-                     </div>
-	        </div>
-	</div> <!-- Fine div mainArea -->
-</body>
+     <head>
+          <meta charset="UTF-8">
+          <title>Raschietto</title>
+          <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+          <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+          <link rel="stylesheet" type="text/css" href="css/readerCSS.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+          <script src="js/bootstrap.min.js"></script>
+          <script src="js/mainArea.js"></script>
+          <script src="js/menuBar.js"></script>
+     </head>
+     <body>
+          <div id="menuBar"> <!-- Inizio div menuBar -->
+               <span class="welcomespan"> Benvenuto</span>
+               <div class="col-lg-6">
+                    <div class="input-group">
+                         <input type="text" class="form-control" placeholder="Inserisci url...">
+                         <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">Go!</button>
+                         </span>
+                    </div><!-- /input-group -->
+               </div><!-- /.col-lg-6 -->
+               <button id = "Annotator"> Annotator </button>
+               <button id = "About"> About </button>
+               <button id = "Help"> Help </button>
+          </div> <!-- Fine div di menuBar -->
+          <div id="leftpanel">
+               <div id="docArea" class="panel-group"> <!-- Inizio div docArea -->
+                    <div class="panel panel-default">
+                         <div class="panel-heading"> <!-- Div panel Lista Documenti -->
+                              <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Lista Documenti</a>
+                              </h4>
+                         </div>
+                         <div id="collapseOne" class="panel-collapse collapse in">
+                              <div class="panel-body">
+                                   <div class="btn-group-vertical">
+                                        <button type="button" class="btn btn-primary" id="btnAdd">Add Tab</button>
+                                        <button type="button" class="btn btn-primary">Doc1</button>
+                                        <button type="button" class="btn btn-primary">doc2</button>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="panel panel-default">
+                         <div class="panel-heading"> <!-- Div panel Annotazioni sul documento -->
+                              <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Annotazioni sul Documento</a>
+                              </h4>
+                         </div>
+                         <div id="collapseTwo" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                   <div class="btn-group-vertical">
+                                     <button type="button" class="btn btn-primary">Annotazione doc</button>
+                                     <button type="button" class="btn btn-primary">Annotazione doc</button>
+                                     <button type="button" class="btn btn-primary">Annotazione doc</button>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="panel panel-default">
+                         <div class="panel-heading"> <!-- Div panel Annotazioni sul frammento -->
+                              <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Annotazioni sul Frammento</a>
+                              </h4>
+                         </div>
+                         <div id="collapseThree" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                   <div class="btn-group-vertical">
+                                     <button type="button" class="btn btn-primary">Annotazione framm</button>
+                                     <button type="button" class="btn btn-primary">Annotazione framm</button>
+                                     <button type="button" class="btn btn-primary">Annotazione framm</button>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div> <!-- Fine div docArea -->
+               <div id="metaArea"> <!-- Inizio div metaArea -->
+                    <ul class="nav nav-tabs"> <!-- Div delle tab -->
+                         <li class="active"><a data-toggle="tab" href="#filtro">Filtro Annotazioni</a></li>
+                         <li><a data-toggle="tab" href="#nuove_ann">Nuove annotazioni</a></li>
+                    </ul>
+                    <div class="tab-content"> <!-- Div del contenuto delle tab -->
+                         <div id="filtro" class="tab-pane fade in active">
+                              <p>Filtri</p>
+                         </div>
+                         <div id="nuove_ann" class="tab-pane fade">
+                              <p>Annotazioni temporanee create dall'utente</p>
+                         </div>
+                    </div>
+               </div><!-- Fine div metaArea -->		
+          </div> <!-- Fine div leftPanel -->
+          <div id="mainArea"> <!-- Inizio div mainArea -->
+               <ul class="nav nav-tabs" id="tabs">
+                    <li class="active"><a href="#help" data-toggle="tab"><h6>Tab Help</h6></a><span>X</span></li>
+               </ul>
+               <div class="tab-content" id="contentmain">
+                    <div class="tab-pane active" id="help"> <h3>Documento Default </h3><p>Lorem ipsum dolor sit amet, qui ex quis tempor persius, eu per minim accusam, est sumo harum melius id. Invenire appellantur duo no. Dicta scripserit necessitatibus est in, sea ad iriure intellegat reprehendunt, an mazim dicit iuvaret mei. Natum posse albucius vim et, quo putent commune dissentiet ne. Odio detracto mel at, vocibus denique at sed, illud ancillae postulant est an. Cum ne fugit altera postulant, omnesque dignissim cotidieque quo cu. Cu dicant rationibus pri, usu illum alterum patrioque no. Est ut errem scripserit, sed eu tation maluisset. Cum diceret detracto honestatis in. Reque mucius possit ea vel, ex tamquam fabellas evertitur mel. Pro dolorem facilisi id. Nam eius exerci utamur ut. Ne alii aeque recusabo eum, has esse meis ullum id. Ex verear commodo usu, eu oporteat dissentiunt nec. Et soluta animal pri, illum probatus explicari eos et, at his dicat tollit. Falli ceteros eu est, sit omnium verear voluptatum te. Mea diam mucius ea, hinc antiopam vix cu.</p>
+                    </div>
+               </div>
+          </div> <!-- Fine div mainArea -->
+     </body>
 </html>

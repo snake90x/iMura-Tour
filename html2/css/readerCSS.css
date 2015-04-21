@@ -6,6 +6,10 @@
  width: 99%; 
  float: right; 
  }
+.col-lg-6{
+     position: relative;
+     float: right;
+}
  #Annotator {	float: right;
 				font-family: 'courier new';
 				font-weight: bold;

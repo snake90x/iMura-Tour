@@ -2,7 +2,15 @@
  
 /* script implementazione pulsanti*/
 		$('#Help').click(function(){
-			// create the tab
+             var tabExist = false;
+               $("#mainArea ul li a").each(function(i){
+                    if(this.text=="Tab Help"){
+                        $(this).tab('show');
+                         tabExist=true;
+                    }
+               });
+             if(!tabExist){
+               // create the tab
     	$('<li><a href="#help" data-toggle="tab"><h6>Tab Help</h6></a><span>X</span></li>').appendTo('#tabs');
     	
     	// create the tab content
@@ -10,6 +18,8 @@
     	
     	// make the new tab active
     	$('#tabs a:last').tab('show');
+             }
+			
 		});
 
 
