@@ -6,6 +6,13 @@
  width: 99%; 
  float: right; 
  }
+
+#logo{
+position: relative;
+float: left;
+}
+
+
 .col-lg-6{
      position: relative;
      float: right;
@@ -130,4 +137,8 @@
 
 #tabs > li:hover > span {
     display: inline-block;
+}
+
+body {
+    background-color: rgba(143, 152, 150, 0.88);
 }

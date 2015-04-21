@@ -20,4 +20,11 @@ $(document).ready(function(){
         }
             
   });
+
+
+  //   $('#btnDoc').click(function()  {
+  // $("#contentmain").load("/docs/11beel.print.html"); 
+//     }); 
+                                  
+
 });
