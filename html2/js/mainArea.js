@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('#btnAdd').click(function (e) {
+  $('#btnAdd').click(function (e) { //gestisce la creazione e l'attivazione delle nuove tab e del loro contenuto
     	var nextTab = $('#tabs li').size()+1;
   	
     	// create the tab
@@ -11,7 +11,7 @@ $(document).ready(function(){
     	// make the new tab active
     	$('#tabs a:last').tab('show');
   });
-  $('#tabs').on("click","span",function () {
+  $('#tabs').on("click","span",function () { // gestisce rimozione delle tab e il ritorno alla tab help una volta rimosse tutte le altre tab
         var anchor = $(this).siblings('a');
         $(anchor.attr('href')).remove();
         $(this).parent().remove();

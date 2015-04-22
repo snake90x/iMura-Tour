@@ -23,12 +23,12 @@
 		});
 
 
-		$( "#About" ).click(function() {
+		$( "#About" ).click(function() { // da implementare
 			$( "#dialogo" ).dialog( "open" );
 		});
 
 
-		$('#Annotator').click(function(){
+		$('#Annotator').click(function(){ // da implementare
 			$('#login').dialog( "open" );
 			
 		});
