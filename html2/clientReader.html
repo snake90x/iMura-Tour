@@ -12,33 +12,31 @@
           <script src="js/menuBar.js"></script>
      </head>
      <body>
-          
-          <div id="logo"> 
-                    
-          
-                    <img src="logo.png" align="center" alt="company logo" width="380" height="85" />
-
-          
-               </div>
-        
-          <div id="menuBar"> <!-- Inizio div menuBar -->
-                 <span class="welcomespan"> Benvenuto</span>
-               <div class="col-lg-6">
-                    <div class="input-group">
-                         <input type="text" class="form-control" placeholder="Inserisci url...">
-                         <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                         </span>
-                    </div><!-- /input-group -->
-               </div><!-- /.col-lg-6 -->
-               <button id = "Annotator"> Annotator </button>
-               <button id = "About"> About </button>
-               <button id = "Help"> Help </button>
+        <div class="container-fluid">
+	        <div id="logo" class="jumbotron"> 
+	        	<img src="logo.png" align="center" alt="company logo" width="380" height="85" />
+	        </div>
+        </div>
+          <div id="menuBar" class="container-fluid"> <!-- Inizio div menuBar -->
+	          <div class="row">
+	               <span class="welcomespan"> Benvenuto</span>
+	               <div class="col-lg-6">
+	                    <div class="input-group">
+	                         <input type="text" class="form-control" placeholder="Inserisci url...">
+	                         <span class="input-group-btn">
+	                              <button class="btn btn-default" type="button">Go!</button>
+	                         </span>
+	                    </div><!-- /input-group -->
+	               </div><!-- /.col-lg-6 -->
+	               <button id = "Annotator"> Annotator </button>
+	               <button id = "About"> About </button>
+	               <button id = "Help"> Help </button>
+	          </div>
           </div> <!-- Fine div di menuBar -->
           
            
           
-          <div id="leftpanel">
+          <div id="leftpanel" class="container-fluid">
                <div id="docArea" class="panel-group"> <!-- Inizio div docArea -->
                     <div class="panel panel-default">
                          <div class="panel-heading"> <!-- Div panel Lista Documenti -->
@@ -105,7 +103,7 @@
                     </div>
                </div><!-- Fine div metaArea -->		
           </div> <!-- Fine div leftPanel -->
-          <div id="mainArea"> <!-- Inizio div mainArea -->
+          <div id="mainArea" class="container-fluid"> <!-- Inizio div mainArea -->
                <ul class="nav nav-tabs" id="tabs">
                     <li class="active"><a href="#help" data-toggle="tab"><h6>Tab Help</h6></a><span> x </span></li>
                </ul>
