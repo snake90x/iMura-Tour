@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0064)http://www.dlib.org/dlib/november14/voelske/11voelske.print.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="./11voelske.print_files/style1.css" rel="stylesheet" type="text/css">
+<title>D-Lib Magazine</title>
+</head>
+
+<body>
+ 
+<!-- BEGIN MAIN CONTENT TABLE -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#ffffff">
+<tbody><tr>
+<td valign="top"> 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#ffffff">
+<tbody><tr>
+<td valign="top" colspan="2"> 
+<div class="divider-full">&nbsp;</div>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left" class="blue-space">P R I N T E R - F R I E N D L Y&nbsp;&nbsp;F O R M A T
+</td>
+<td valign="top" align="right" class="blue-space"><a href="http://www.dlib.org/dlib/november14/voelske/11voelske.html">Return to Article</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><div class="divider-full">&nbsp;</div>
+</td>
+</tr>
+</tbody></table>
+
+<h3 class="blue-space">D-Lib Magazine</h3>
+<p class="blue">November/December 2014<br>
+Volume 20, Number 11/12
+</p> 
+
+<div class="divider-full">&nbsp;</div>
+
+<h3 class="blue-space">A Keyquery-Based Classification System for CORE</h3>
+
+<p class="blue">
+Michael Völske, Tim Gollub, Matthias Hagen and Benno Stein<br> 
+Bauhaus-Universität Weimar, Weimar, Germany<br>
+{michael.voelske, tim.gollub, matthias.hagen, benno.stein}@uni-weimar.de
+
+<br><br>doi:10.1045/november2014-voelske
+ </p>
+ 
+<div class="divider-full">&nbsp;</div>
+
+ <!-- Abstract or TOC goes here --> 
+
+<!--  Start article copy from Abstract thru end of About the Author. -->
+
+<h3 class="blue">Abstract</h3>
+
+<p class="blue">
+We apply keyquery-based taxonomy composition to compute a classification system for the CORE dataset, a shared crawl of about 850,000 scientific papers. Keyquery-based taxonomy composition can be understood as a two-phase hierarchical document clustering technique that utilizes search queries as cluster labels: In a first phase, the document collection is indexed by a reference search engine, and the documents are tagged with the search queries they are relevant—for their so-called keyqueries. In a second phase, a hierarchical clustering is formed from the keyqueries within an iterative process. We use the explicit topic model ESA as document retrieval model in order to index the CORE dataset in the reference search engine. Under the ESA retrieval model, documents are represented as vectors of similarities to Wikipedia articles; a methodology proven to be advantageous for text categorization tasks. Our paper presents the generated taxonomy and reports on quantitative properties such as document coverage and processing requirements.</p>
+
+<p class="blue">Keywords: Dynamic Taxonomy Composition, Keyquery, Classification Systems, Reverted Index, Big Data Problem</p>
+<!-- Article goes next --> 
+
+<div class="divider-full">&nbsp;</div>
+<h3>1. Introduction and Related Work</h3>
+
+<p>Classification systems form the heart of any library information system. For library maintainers, classification systems provide an effective means to overview a library's inventory. For library users, classification systems facilitate the structured exploration of large document sets. The manual development and maintenance of a classification system is a complex and time consuming task, raising the question whether and at which quality this task can be automated. In this paper we demonstrate how to compute a taxonomic classification system for a digital library (or a subset thereof) using keyquery-based taxonomy composition, a document clustering technique recently proposed by Gollub, <i>et al</i>. [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#7">7</a>]. Specifically, we present a classification system that we computed for CORE (a crawl of 850,000 scientific papers), which serves as a shared dataset for the Third International Workshop on Mining Scientific Publications, and which currently lacks subject-oriented classification. </p>
+
+<p>In the following, we briefly introduce the concepts behind keyquery-based taxonomy composition and give pointers to related work where appropriate. Section 2 describes the technical details of our data processing pipeline, and explains various design decisions. Section 3 presents an excerpt of the computed CORE classification system along with informative statistics.</p>
+
+<p>A taxonomic classification system, like any taxonomy, is an arrangement of terms in a tree-like structure, where parent-child relationships indicate that the parent term semantically subsumes the child term. A taxonomy can hence be defined as a pair (T,<span style="font-size: 125%;">≤</span>), where T is a terminology (the set of terms), and <span style="font-size: 125%;">≤</span> is a reflexive and transitive binary relation over T called subsumption (the parent-child relationships) [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#10">10</a>]. The idea of keyquery-based taxonomy composition is to treat the inverted index <i>µ : V → 2<span style="vertical-align: super;">D</span></i> of a reference search engine as a <i>model</i> from which a taxonomy can be inferred (we use the notation 2<i><span style="vertical-align: super;">X</span></i> to denote the powerset of <i>X</i>). For the terminology T, a subset of all queries that can be formulated using <i>µ</i>'s vocabulary <i>V</i> is taken. The subsumption <span style="font-size: 125%;">≤</span> is inferred from <i>µ</i>'s postlists, each holding a subset of the indexed document collection <i>D</i>. 
+
+Specifically, a term <i>t<span style="vertical-align: sub;">1</span> <span style="font-size: 125%;">∈</span> T</i> is assumed to subsume a term <i>t<span style="vertical-align: sub;">2</span> <span style="font-size: 125%;">∈</span> T</i>, <i>t<span style="vertical-align: sub;">2</span> <span style="font-size: 125%;">≤</span> t<span style="vertical-align: sub;">1</span></i> if the result list <i>D<span style="vertical-align: sub;">t<span style="font-size: 80%; vertical-align: sub;">2</span></span></i> is a subset of <i>D<span style="vertical-align: sub;">t<span style="font-size: 80%; vertical-align: sub;">1</span></span></i>, <i>D<span style="vertical-align: sub;">t<span style="font-size: 80%; vertical-align: sub;">2</span></span></i> ⊂ <i>D<span style="vertical-align: sub;">t<span style="font-size: 80%; vertical-align: sub;">1</span></span></i>. 
+
+Further, it is assumed that the reference search engine captures semantic subsumptions only roughly, and that a tolerance level must be introduced that allows to infer a subsumption relationship already if the subset relationship holds only to a certain extent. To this end, keyquery-based taxonomy composition introduces a two-phase document clustering algorithm that determines, for a given parent term, a collection of child terms which are (1) largely subsumed by the parent term, and (2) together maximize the recall with respect to the parent term's post-list. Applied to each term in T, the clustering algorithm eventually finds all subsumptions induced by the reference search engine.</p>
+
+<p>In the light of the classification of document clustering algorithms by Carpineto, <i>et al</i>. [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#4">4</a>], this two-phase clustering algorithm can be termed a <i>description-centered</i> clustering algorithm. Clustering algorithms of this type follow the intuition that meaningful cluster descriptions are essential for a clustering from a user perspective, and hence, their formation should be the driving force of the cluster analysis. Within keyquery-based taxonomy composition, the notion of <i>meaningful</i> is defined as follows: A term is a meaningful description of a cluster if a reference search engine queried with that term will retrieve the cluster's documents. This definition implies that the potential clusters of a document are given by the queries for which it is retrieved. These queries are called the <i>keyqueries</i> of a document, and they are determined and stored in a keyquery acquisition phase preceding the actual cluster formation process.</p>
+
+<p>This two-phase approach is illustrated in Figure 1. The upper part of the figure shows the process of keyquery acquisition, whereas the lower part illustrates the cluster formation.</p>
+
+<div class="divider-gray">&nbsp;</div>
+<div align="center">
+<img src="./11voelske.print_files/voelske-fig1.png" alt="voelske-fig1" width="485" height="556" vspace="10">
+<p class="indentQuote"><i>Figure 1: Conceptual overview for composing classification systems for arbitrary library subsets. The upper part of the figure shows the offline keyquery acquisition and assignment component,
+which both determines all keyqueries for the library documents and stores them in the reverted index. The lower part of the figure shows the online cluster formation component, which iteratively composes sublevels <i>Q<span style="vertical-align: sub;">c</span></i> for a user provided library subset <i>D<span style="vertical-align: sub;">u</span></i>. The composition of sublevels is controlled by the user, who selects a query <i>Q<span style="vertical-align: sub;">u</span></i> from the current taxonomy level <i>Q<span style="vertical-align: sub;">c</span></i>.</i></p>
+</div>
+<div class="divider-gray">&nbsp;</div>
+
+<p><i>Keyquery Acquisition</i>. To determine the keyqueries for a document collection <i>D</i>, a reference search engine that indexes the documents has to be set up (left column of Figure 1). The reference search engine employs the inverted index <i>µ</i> in order to retrieve the relevant documents <i>D<span style="vertical-align: sub;">u</span></i> for a query <i>Q<span style="vertical-align: sub;">u</span></i>. For the documents <i>D</i> of a digital library, a search engine may probably exist and can be directly applied for our purposes. For the CORE dataset, we set up a new reference search engine that employs explicit semantic analysis, ESA, as retrieval model [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#6">6</a>]; see Section <a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#2.1">2.1</a> for details.</p>
+
+<p>From the inverted index <i>µ</i>, the reverted index <i>µ</i><span style="vertical-align: super;">-1</span> can be computed, which lists every document of <i>D</i> in its keyset and stores the document's keyqueries as postlists [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#9">9</a>] (right column of Figure 1). To compute the keyqueries for the documents in <i>D</i>, the vocabulary <i>V</i> of the inverted index is used to formulate search queries that consist of terms from <i>V</i>. Together, these queries form the terminology for our taxonomy: the query space <i>Q</i>. During the reverted indexing process each query in <i>Q</i> is submitted to the search engine, and the returned documents are stored in the respective postlists of the reverted index. Note that this procedure can be seen as a general framework for automated tagging, and actually, depending on the specific reference search engine used, existing approaches to this task may be approximated under this framework [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#12">12</a>, <a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#5">5</a>].</p>
+
+<p><i>Cluster Formation</i>. The cluster formation process is illustrated in the lower part of Figure 1; it is initiated by providing a document set <i>D<span style="vertical-align: sub;">u</span></i>. For our task of composing a classification for the CORE dataset, <i>D<span style="vertical-align: sub;">u</span></i> corresponds to the entire CORE collection <i>D</i>. However, a powerful feature of keyquery-based taxonomy composition is that it can dynamically compose tailored classification systems for arbitrary subsets of <i>D</i>. Especially, <i>D<span style="vertical-align: sub;">u</span></i> could be the search results for a query submitted to the reference search engine, giving rise to an interesting application in exploratory search settings [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#13">13</a>].</p>
+
+<p>To form a clustering for the given documents <i>D<span style="vertical-align: sub;">u</span></i>, a set of <i>k</i> queries <i>Q<span style="vertical-align: sub;">c</span></i> is sought whose search results cover <i>D<span style="vertical-align: sub;">u</span></i> with high recall, and which are subsumed by <i>D<span style="vertical-align: sub;">u</span></i> with high precision. For each query <i>Q</i>, its recall with respect to <i>D<span style="vertical-align: sub;">u</span></i> is defined as |<i>D<span style="vertical-align: sub;">Q</span></i> <span style="font-size: 125%;">∩</span> <i>D<span style="vertical-align: sub;">u</span></i>|/|<i>D<span style="vertical-align: sub;">u</span></i>|, whereas its precision is defined as |<i>D<span style="vertical-align: sub;">Q</span></i> <span style="font-size: 125%;">∩</span> <i>D<span style="vertical-align: sub;">u</span></i>|/|<i>D<span style="vertical-align: sub;">Q</span></i>|.  The variable <i>k</i> controls the maximum number of clusters in the clustering and is set to twelve in our application as suggested in the original paper. To find the best clustering for <i>D<span style="vertical-align: sub;">u</span></i>, the reverted index could be exploited in different ways. First, the whole set <i>D<span style="vertical-align: sub;">u</span></i> can be submitted to the reverted index, which in turn responds with a list of all keyqueries <i>Q</i> that appear in any of the postlists for <i>D<span style="vertical-align: sub;">u</span></i>, ranked according to their frequency of appearance (= |<i>D<span style="vertical-align: sub;">Q</span></i> <span style="font-size: 125%;">∩</span>  <i>D<span style="vertical-align: sub;">u</span></i>|). This approach is employed by the greedy set cover algorithm DocumentCover, which we use to compose the CORE classification system. DocumentCover is described in Section <a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#2.2">2.2</a>. Alternatively, the reverted index could be queried one document at a time to construct a keyquery-document matrix for <i>D<span style="vertical-align: sub;">u</span></i>. This matrix could then form the basis of an agglomerative cluster formation process [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#2">2</a>, <a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#3">3</a>]. Since, independent from the cluster formation approach, a clustering is defined to be a set of queries, it is ensured that only clusterings <i>Q<span style="vertical-align: sub;">c</span></i> with meaningful cluster labels are formed. This implication can be phrased also as a query constraint within constraint clustering terminology [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#1">1</a>]: Two documents <i>cannot link</i> if they do not share a common keyquery.</p>
+
+<p>Given the clustering <i>Q<span style="vertical-align: sub;">c</span></i> for the initial <i>D<span style="vertical-align: sub;">u</span></i>, a hierarchical clustering (i.e., a classification system) can be achieved by submitting each keyquery of <i>Q<span style="vertical-align: sub;">c</span></i> to the reference search engine, which in turn triggers the generation of clusterings for the next sublevel. For the CORE dataset, we repeat this iterative process until the hierarchy is three levels deep. The resulting clustering is used as the classification system for CORE in the next section.</p>
+
+<div class="divider-full">&nbsp;</div>
+<h3>2. Application to CORE</h3>
+
+<p>The CORE dataset provides a convenient real-world testbed for keyquery-based taxonomy composition. Out of the 850,000 total articles in the data dump, we limit our analysis to articles where English full-text is available. To further improve the quality of the dataset, we try to filter out articles with parsing errors by discarding those whose average word length is more than two standard deviations from the mean of 6.5 characters. These filtering steps result in a set of about 450,000 articles, which form the foundation for the experiment presented below.</p>
+
+<div class="divider-dot"><a name="2.1">&nbsp;</a></div>
+<h4>2.1 Keyquery Acquisition</h4>
+
+<p>The major design decision that has to be made in the keyquery acquisition phase is the selection of a retrieval model for the reference search engine. Our retrieval model of choice for CORE is the explicit topic model ESA [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#6">6</a>], because it possesses, in comparison to bag-of-words or latent topic models, outstanding properties for our task.</p>
+
+<p><i>Domain Knowledge</i>. ESA represents documents via their similarity to a set of Wikipedia articles. Since we know that the CORE dataset consists of academic papers from various disciplines, we can incorporate this domain knowledge by choosing the Wikipedia articles for ESA accordingly. We select all articles referenced on Wikipedia's "List of Academic Disciplines" page, and we further enrich the set by articles whose titles appear in more than 100 CORE papers. In total, we extract 4,830 articles from the English Wikipedia dump for February 2, 2014.</p>
+
+<p><i>Query Representation</i>. The titles of the selected articles also form the vocabulary <i>V</i>, i.e. the query space <i>Q</i> is set equal to the topic space of ESA, which has an interesting effect when it comes to answering queries. Typically, to answer queries under a topic model, queries are treated as (tiny) documents in the vocabulary space. To identify relevant documents, the query is transferred from the vocabulary space to the topic space first, and its similarity to documents in the topic space is then used as relevance metric. The explicit topics of ESA allow us to pursue an alternative relevance assessment strategy which aligns well with the idea of queries as higher level concepts: Queries are treated as documents that already reside in the topic space, and relevance scores can be computed directly. This works since all query terms have—by vocabulary design—a well-defined representation in the topic space of ESA.</p>
+
+<p><i>Implicit Relevance</i>. As a final argument for the use of ESA, unlike bag-of-words models like TfIdf, ESA is capable of finding relevant documents that do not contain the query terms explicitly. Especially for general terms—like those one would expect on the first level of a taxonomy—this is an important property, since they are known to appear rarely explicitly in relevant documents [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#10">10</a>]. With ESA, to be relevant for a query term, a document only needs to be similar to the respective Wikipedia article. To compute the similarity between documents and Wikipedia articles, we represent each document and each Wikipedia article under a BM25 retrieval model, and compute the dot product for each document-article pair. Given 450,000 CORE documents and 4,830 Wikipedia articles, this yields an 450,000-by-4,830 similarity matrix, where each of the column vectors contains the similarity distribution for one Wikipedia topic. Since these document-topic similarity distributions tend to be long-tailed, with many documents achieving a low similarity score, we apply the sparsification criterion from [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#8">8</a>], setting similarities which are not significantly above a computed expected similarity score to zero. For every CORE document, we consider the set of Wikipedia articles with non-zero similarity scores to be its keyqueries. We store the mapping <i>µ</i> from each keyquery to documents in an inverted index. The mapping <i>µ<span style="vertical-align: super;">-1</span></i>from each document to its keyqueries is stored in a reverted index for efficient access during cluster formation.</p>
+
+<p>Figure 2 shows the frequency distribution of keyqueries in the reverted index. Given a fan-out parameter <i>k</i> = 12 and a target depth of three for the taxonomy, keyquery-based taxonomy composition proceeds in a level-wise manner, first splitting the entire collection into 12 top-level classes, then incrementally subdividing subclasses up to the leaf level. For the chosen taxonomy parameters, the overlaid vertical bars in Figure 2 show the optimal result set sizes for the leaf, middle and top level, from left to right. The horizontal cross bars superimposed on each level show the minimum number of queries needed at a given depth. Note that the "Academic Disciplines" topics alone suffice to fill out the top level of the taxonomy, whereas the lower levels require additional articles selected from document keyphrases. As noted, the full set of Wikipedia topics forms the query space <i>Q</i> for the cluster-formation process.</p>
+
+<div class="divider-gray">&nbsp;</div>
+<div align="center">
+<img src="./11voelske.print_files/voelske-fig2.png" alt="voelske-fig2" width="580" height="420" class="border" vspace="10">
+</div>
+<p style="padding-left: 10em; padding-right: 10em;"><i>Figure 2: Distribution of query result set sizes in the reverted index for the CORE dataset. The overlaid vertical lines show the optimal result set sizes for the generated taxonomy of depth 3; horizontal crossbars show the minimum number of queries needed at a given level.</i></p>
+
+<div class="divider-dot"><a name="2.2">&nbsp;</a></div>
+<h4>2.2 Cluster Formation</h4>
+
+<p>The cluster formation step can be stated as an iterative optimization problem. Given a document set <i>D<span style="vertical-align: sub;">u</span></i> to subdivide, the objective is to find the <i>k</i>-subset of the query space <i>Q</i> that maximizes recall with respect to <i>D<span style="vertical-align: sub;">u</span></i>, subject to the constraint that the maximum fan-out of <i>k</i> is never exceeded.</p>
+
+<p>We employ <i>Greedy Document Cover</i> to approximate the solution to this optimization problem [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#7">7</a>]. The algorithm subdivides a single document set <i>D<span style="vertical-align: sub;">u</span></i> into <i>k</i> subclasses using keyqueries from the reverted index; it is applied iteratively to the resulting subclasses until the leaf level of the taxonomy is reached. Next to <i>D<span style="vertical-align: sub;">u</span></i> and <i>k</i>, the algorithm receives as input the target class size <i>t</i>, which is computed as |<i>D<span style="vertical-align: sub;">u</span></i>|/<i>k</i>, and a slack parameter <i>m</i> = 50% which allows the result set size of the keyqueries to deviate by some margin. </p>
+
+<p>In order to subdivide a document set <i>D<span style="vertical-align: sub;">u</span></i>, the algorithm retrieves from the reverted index the set of candidate queries <i>Q<span style="vertical-align: sub;">u</span></i> that return documents from <i>D<span style="vertical-align: sub;">u</span></i>. In order to select keyqueries on each taxonomy level that are subsumptions of their parents, we restrict the set of candidate queries to those with a precision greater than 0.8 with respect to <i>D<span style="vertical-align: sub;">u</span></i> (as in [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#11">11</a>]). In up to <i>k</i> iterations, the algorithm selects the candidate query that maximizes recall—with respect to those documents in <i>D<span style="vertical-align: sub;">u</span></i> that have not yet been assigned to a subclass—as a child term in the taxonomy. The algorithm terminates when the maximum fan-out of <i>k</i> is reached, or when no further candidate queries meeting the constraints are available. Any remaining documents in <i>D<span style="vertical-align: sub;">u</span></i> are assigned to a "Miscellaneous" class.</p>
+
+<p>We implement <i>Greedy Document Cover</i> as a series of MapReduce jobs, and store the query space <i>Q</i> and the document sets in the distributed file system of our Hadoop cluster. Each Map job filters its input queries with respect to the constraints given by <i>t</i> and <i>m</i>, and emits the results with appropriate keys. The intersection of the documents retrieved by each candidate query with the not-yet retrieved subset of <i>D<span style="vertical-align: sub;">u</span></i> is processed by a corresponding Reduce operation. The latter then computes each candidate query's precision and recall, and a subsequent MapReduce stage selects the candidate query to use in the current taxonomy branch. For managing the data flow between the different job stages, we employ the Scalding distributed processing framework.</p>
+
+<p>Generating the classification system for the entire CORE dataset on our 40-node cluster takes about 48 hours of wall-clock time. Taxonomy generation for an entire digital library taking a long time is not a major issue—the classification system can be updated periodically by a nightly batch job. However, processing time is problematic in a live retrieval setting, where the document set returned by a user's query is to be subdivided in real-time. As outlined in [<a href="http://www.dlib.org/dlib/november14/voelske/11voelske.print.html#7">7</a>], we propose an on-demand generation of taxonomy levels as a possible solution: compute only those branches of the classification system that the user explores while surveying her search results.</p>
+
+<div class="divider-full">&nbsp;</div>
+<h3>3. Results &amp; Conclusions</h3>
+
+<p>Figure 3 shows an excerpt of our classification system for the CORE dataset. The top level classes, subdivide the collection with respect to the academic disciplines given as input with an average pairwise overlap of 12%. Through the use of tailored Wikipedia articles, the top level of our taxonomy meets the common expectations of a library classification system. The subclasses for two of the top-level and mid-level categories are shown in the middle and on the right of the figure, respectively. For the second and third level classes, we observe a clear semantic connection to the respective parent classes. However, our approach does not produce an obvious semantic connection between sibling classes; it's not possible to guess the tenth sibling from studying the first nine. The percentage of documents covered by a given taxonomy subtree is shown in brackets next to each non-leaf label. Our keyquery-based classification system covers a total of 58% of the CORE subset considered in our experiment; the average coverage across all non-leaf taxonomy classes is 26%, indicating that despite the use of ESA as retrieval model, finding a classification at a high level of abstraction is a major challenge.</p>
+
+<div class="divider-gray">&nbsp;</div>
+<div align="center">
+<img src="./11voelske.print_files/voelske-fig3.png" alt="voelske-fig3" width="786" height="784" vspace="10">
+</div>
+<p style="padding-left: 10em; padding-right: 10em;"><i>Figure 3: Excerpt of a partial keyquery-based taxonomy generated for the CORE dataset. For each non-leaf class, the percentage of documents covered by its subtree is shown in brackets next to the class label.</i></p>
+<div class="divider-gray">&nbsp;</div>
+
+<p>In conclusion, while our results so far are very promising, our taxonomy composition approach could benefit from a more in-depth evaluation. A comprehensive study of digital library users performing real-world retrieval tasks would help assess the usefulness of dynamically-generated classification systems. The semantic structure of the Wikipedia-based index collection makes for somewhat salient classes in the classification system, but our approach does not guarantee complementary sibling classes. Concept relationships mined from knowledge bases like Probase may help alleviate this weakness by further constraining the set of permissible candidate queries in a given <i>Document Cover</i> iteration.</p>
+
+<div class="divider-full">&nbsp;</div>
+<h3>References</h3>
+
+<p><a name="1">[1]</a> S. Basu, I. Davidson, and K. Wagstaff. <i>Constrained Clustering: Advances in Algorithms, Theory, and Applications</i>. Chapman &amp; Hall/CRC, 2008. ISBN-13: 978-1450410649</p>
+
+<p><a name="2">[2]</a> F. Beil, M. Ester, and X. Xu. Frequent term-based text clustering. In <i>SIGKDD</i>, 2002. ACM. <a href="http://doi.org/10.1145/775047.775110">http://doi.org/10.1145/775047.775110</a></p>
+
+<p><a name="3">[3]</a> F. Bonchi, C. Castillo, D. Donato, and A. Gionis. Topical query decomposition. In <i>SIGKDD</i>, 2008. ACM. <a href="http://doi.org/10.1145/1401890.1401902">http://doi.org/10.1145/1401890.1401902</a></p>
+
+<p><a name="4">[4]</a> C. Carpineto, S. Osinński, G. Romano, and D. Weiss. A Survey of Web Clustering Engines. <i>Computing Surveys</i>, 2009. ACM. <a href="http://doi.org/10.1145/1541880.1541884">http://doi.org/10.1145/1541880.1541884</a></p>
+
+<p><a name="5">[5]</a> N. Erbs, I. Gurevych, and M. Rittberger. Bringing order to digital libraries: From keyphrase extraction to index term assignment. <i>D-Lib Magazine</i>, 2013. <a href="http://doi.org/10.1045/september2013-erbs">http://doi.org/10.1045/september2013-erbs</a></p>
+
+<p><a name="6">[6]</a> E. Gabrilovich and S. Markovitch. <a href="https://www.aaai.org/Papers/IJCAI/2007/IJCAI07-259.pdf">Computing semantic relatedness using wikipedia-based explicit semantic analysis</a>.
+In <i>IJCAI</i>, 2007. Morgan Kaufmann.</p>
+
+<p><a name="7">[7]</a> T. Gollub, M. Hagen, M. Völske, and B. Stein. <a href="http://www.uni-weimar.de/medien/webis/publications/papers/stein_2014g.pdf">Dynamic Taxonomy Composition via Keyqueries</a>. In <i>DL (JCDL &amp; TPDL)</i>, 2014. ACM/IEEE.</p>
+
+<p><a name="8">[8]</a> T. Gollub and B. Stein. Unsupervised Sparsification of Similarity Graphs. In <i>IFCS &amp; GFKL</i>, 2010. Springer. <a href="http://doi.org/10.1007/978-3-642-10745-0_7">http://doi.org/10.1007/978-3-642-10745-0_7</a></p>
+
+<p><a name="9">[9]</a> J. Pickens, M. Cooper, and G. Golovchinsky. Reverted indexing for feedback and expansion. In <i>CIKM</i>, 2010. ACM. <a href="http://doi.org/10.1145/1871437.1871571">http://doi.org/10.1145/1871437.1871571</a></p>
+
+<p><a name="10">[10]</a> G. Sacco and Y. Tzitzikas. Dynamic Taxonomies and Faceted Search: Theory, Practice, and Experience. In <i>Information
+Retrieval Series</i>, 2009. Springer. ISBN-13: 978-3642023590</p>
+
+<p><a name="11">[11]</a> M. Sanderson and B. Croft. Deriving concept hierarchies from text. In <i>SIGIR</i>, 1999. ACM. <a href="http://doi.org/10.1145/312624.312679">http://doi.org/10.1145/312624.312679</a></p>
+
+<p><a name="12">[12]</a> S. Tuarob, L. C. Pouchard, and C. L. Giles. Automatic tag recommendation for metadata annotation using probabilistic topic modeling. In <i>JCDL</i>, 2013. ACM. <a href="http://doi.org/10.1145/2467696.2467706">http://doi.org/10.1145/2467696.2467706</a></p>
+
+<p><a name="13">[13]</a> R. White and R. Roth. Exploratory Search: Beyond the Query-Response Paradigm. <i>Synthesis Lectures on Information Concepts, Retrieval, and Services</i>, 2009. Morgan &amp; Claypool. <a href="http://doi.org/10.2200/S00174ED1V01Y200901ICR003">http://doi.org/10.2200/S00174ED1V01Y200901ICR003</a></p>
+
+<div class="divider-full">&nbsp;</div>
+<h3>About the Authors</h3>
+
+<table border="0" cellpadding="6" bgcolor="#FFFFFF"> 
+<tbody><tr>
+<td align="center"><img src="./11voelske.print_files/voelske.jpg" class="border" alt="voelske" width="100" height="133"></td>
+<td>
+<p class="blue"><b>Michael Völske</b> completed his M.Sc. in Computer Science and Media at Bauhaus-Universität Weimar in 2013 and joined the Web Technology and Information Systems research group the same year. His research interests include clustering, text reuse, and web search.</p>
+</td>
+</tr>
+</tbody></table>
+
+<div class="divider-full">&nbsp;</div>
+
+<table border="0" cellpadding="6" bgcolor="#FFFFFF"> 
+<tbody><tr>
+<td align="center"><img src="./11voelske.print_files/gollub.jpg" class="border" alt="gollub" width="100" height="133"></td>
+<td>
+<p class="blue"><b>Tim Gollub</b> studied Media Systems at Bauhaus-Universität Weimar. In 2008, he received his Diploma degree and joined the research group Web Technology and Information Systems at Bauhaus-Universität Weimar as a research assistant. Tim's current research focuses on the cross-sections of information retrieval, data mining, and web technologies.</p>
+</td>
+</tr>
+</tbody></table>
+
+<div class="divider-full">&nbsp;</div>
+
+<table border="0" cellpadding="6" bgcolor="#FFFFFF"> 
+<tbody><tr>
+<td align="center"><img src="./11voelske.print_files/hagen.jpg" class="border" alt="hagen" width="100" height="133"></td>
+<td>
+<p class="blue"><b>Matthias Hagen</b> is Junior Professor at the Bauhaus-Universität Weimar and head of the junior research group "Big Data Analytics." His current research interests include information retrieval and web search (e.g., query formulation, query segmentation, log analysis, search sessions and missions), Big Data, crowd sourcing, and text reuse. </p>
+</td>
+</tr>
+</tbody></table>
+
+<div class="divider-full">&nbsp;</div>
+
+ <!-- Standard Copyright line here  -->
+
+<div class="center">
+
+
+<p class="footer">Copyright © 2014 Michael Völske, Tim Gollub, Matthias Hagen and Benno Stein</p>  
+  </div>
+</td>
+ </tr>
+ <tr>
+ <td colspan="4">
+ 
+<table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#ffffff">
+<tbody><tr>
+<td valign="top" colspan="2"> 
+<div class="divider-full">&nbsp;</div>
+</td>
+</tr>
+<tr>
+<td valign="top" align="left" class="blue-space">P R I N T E R - F R I E N D L Y&nbsp;&nbsp;F O R M A T
+</td>
+<td valign="top" align="right" class="blue-space"><a href="http://www.dlib.org/dlib/november14/voelske/11voelske.html">Return to Article</a>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><div class="divider-full">&nbsp;</div>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+
+</tbody></table>
+
+
+
+</body></html>

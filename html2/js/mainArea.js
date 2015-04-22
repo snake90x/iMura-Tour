@@ -1,4 +1,7 @@
 $(document).ready(function(){
+     
+  $('#tab_help').load('a.html');
+     
   $('#btnAdd').click(function (e) { //gestisce la creazione e l'attivazione delle nuove tab e del loro contenuto
     	var nextTab = $('#tabs li').size()+1;
   	
@@ -22,9 +25,28 @@ $(document).ready(function(){
   });
 
 
-  //   $('#btnDoc').click(function()  {
-  // $("#contentmain").load("/docs/11beel.print.html"); 
-//     }); 
+     $('#btnDoc').click(function()  {
+          var nextTab = $('#tabs li').size()+1;
+          var tabExist = false;
+          var id="tab"+nextTab;
+          $("#mainArea ul li a").each(function(i){
+               if(this.text=='DOC1'){
+                    $(this).tab('show');
+                    tabExist=true;
+               }
+          });
+          if(!tabExist){
+  	
+    	// create the tab
+    	$('<li><a href="#'+id+'" data-toggle="tab"><h6>DOC1</h6></a><span>X</span></li>').appendTo('#tabs');
+    	
+    	// create the tab content
+    	$('#contentmain').append('<div class="tab-pane" id="'+id+'"></div>');
+    	$('#'+id).load('docs/11voelske.print.html');
+    	// make the new tab active
+    	$('#tabs a:last').tab('show'); 
+          }
+     }); 
                                   
 
 });

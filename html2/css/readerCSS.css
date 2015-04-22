@@ -18,6 +18,14 @@ float: left;
      float: right;
 }
 
+.jumbotron{
+     
+/* background-image: url("../brick.jpg");  
+     background-size: cover;
+   */
+     background-color: #774732;
+}
+
 #Annotator {	float: right;
 				font-family: 'courier new';
 				font-weight: bold;
@@ -119,8 +127,13 @@ float: left;
 	margin-left:1%;
 }
 
+#tabs{
+     
+ overflow-y:scroll;    
+}
 #tabs > li {
-    position:relative;    
+    position:relative;  
+     
 }
 
 #tabs > li > a {
@@ -139,7 +152,10 @@ float: left;
 #tabs > li:hover > span {
     display: inline-block;
 }
-
+.tab-pane{
+     overflow-y: scroll;
+     
+}
 body {
-    background-color: rgba(143, 152, 150, 0.88);
+    background-color: #E3B966;
 }
