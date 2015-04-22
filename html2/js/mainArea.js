@@ -15,7 +15,16 @@ $(document).ready(function(){
         var anchor = $(this).siblings('a');
         $(anchor.attr('href')).remove();
         $(this).parent().remove();
-      // if( $('#tabs li').size()==0)
+        if( $('#tabs li').size()==0){
+          $('#Help').click()
+        }
             
   });
+
+
+  //   $('#btnDoc').click(function()  {
+  // $("#contentmain").load("/docs/11beel.print.html"); 
+//     }); 
+                                  
+
 });
