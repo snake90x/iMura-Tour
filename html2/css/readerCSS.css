@@ -1,8 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 /* Bottoni Menubar */
- #menuBar { 
- margin: 4px;
+ #menuBar {
  width: 99%; 
  float: right; 
  }
@@ -30,13 +29,13 @@ float: left;
 				font-family: 'courier new';
 				font-weight: bold;
 				color: #FFFFFF !important;
-				font-size: 11px;
+				font-size: 0.68em;
 				text-shadow: 1px 1px 0px #0277bd;
 				box-shadow: 1px 1px 1px white;
-				padding: 5px 15px;
-				-moz-border-radius: 6px;
-				-webkit-border-radius: 6px;
-				border-radius: 6px;
+				padding: 0.31em 1em;
+				-moz-border-radius: 0.37em;
+				-webkit-border-radius: 0.37em;
+				border-radius: 0.37em;
 				border: 2px groove #0277bd;
 				background: #0277bd;
 				background: linear-gradient(top,  #0277bd,  #0277bd);
@@ -57,13 +56,13 @@ float: left;
 				font-family: 'courier new';
 				font-weight: bold;
 				color: #FFFFFF !important;
-				font-size: 11px;
+				font-size: 0.68em;
 				text-shadow: 1px 1px 0px #0277bd;
 				box-shadow: 1px 1px 1px #0277bd;
-				padding: 5px 15px;
-				-moz-border-radius: 6px;
-				-webkit-border-radius: 6px;
-				border-radius: 6px;
+				padding: 0.31em 1em;
+				-moz-border-radius: 0.37em;
+				-webkit-border-radius: 0.37em;
+				border-radius: 0.37em;
 				border: 2px groove #0277bd;
 				background: #0277bd;
 				background: linear-gradient(top,  #0277bd,  #0277bd);
@@ -84,13 +83,13 @@ float: left;
 				font-family: 'courier new';
 				font-weight: bold;
 				color: #FFFFFF !important;
-				font-size: 11px;
+				font-size: 0.68em;
 				text-shadow: 1px 1px 0px #0277bd;
 				box-shadow: 1px 1px 1px #0277bd;
-				padding: 5px 15px;
-				-moz-border-radius: 6px;
-				-webkit-border-radius: 6px;
-				border-radius: 6px;
+				padding: 0.31em 1em;
+				-moz-border-radius: 0.37em;
+				-webkit-border-radius: 0.37em;
+				border-radius: 0.37em;
 				border: 2px groove #0277bd;
 				background: #0277bd;
 				background: linear-gradient(top,  #0277bd,  #CFCFCF);
@@ -99,7 +98,10 @@ float: left;
 				background: -moz-linear-gradient(top,  #0277bd,  #CFCFCF);
 		
  }
- 
+.panel-collapse{
+    height: 8.12em;
+    overflow-y: scroll;
+}
  #Help:hover {  color: #FFFFFF !important;
 					  background: #FFFFFF;
 					  background: linear-gradient(top,  #0277bd,  #0277bd);
@@ -112,24 +114,19 @@ float: left;
 #mainArea{
 	float: right;
 	width: 73%;
-	height: 543px;
-	font-size: 14px;
-	padding: 5px 5px;
+	height: 34.06em;
+	font-size: 0.87em;
+	padding: 0.31em 0.31em;
 	
 }
 
 #leftpanel{
 	float: left;
 	width: 25%;
-	height: 545px;
-	font-size: 14px;
+	height: 34.06em;
+	font-size: 0.87em;
 	margin-top:0px;
 	margin-left:1%;
-}
-
-#tabs{
-     
- overflow-y:scroll;    
 }
 #tabs > li {
     position:relative;  
@@ -144,18 +141,22 @@ float: left;
     display:none;
     cursor:pointer;
     position:absolute;
-    right: 6px;
-    top: 8px;
+    right: 0.37em;
+    top: 0.5em;
     color: red;
 }
 
 #tabs > li:hover > span {
     display: inline-block;
 }
+#contentmain{
+    background-color: floralwhite;
+    height: 34.06em;
+    overflow-y: scroll;
+}
 .tab-pane{
-     overflow-y: scroll;
-     
+     /*overflow-y: scroll;*/
 }
 body {
-    background-color: #E3B966;
+    background-color: #ffffff;
 }
