@@ -12,9 +12,9 @@ ul{
 
 ul.container{
 	/* The topmost UL */
-	width:240px;
+	width:190px;
 	margin:0 auto;
-	/*padding:50px;*/
+	padding:50px;
 }
 
 li{
@@ -35,19 +35,13 @@ li.button a{
 	font-size:21px;
 	height:34px;
 	overflow:hidden;
-	padding:10px 20px 0;
+	padding:0px 20px 0;
 	position:relative;
-	width:100%;
+	width:auto;
 }
-
-li.button a:hover{
-	/* Removing the inherited underline from the titles */
-	text-decoration:none;
-}
-
 li.button a span{
 	/* This span acts as the right part of the section's background */
-	height:44px;
+	height:48px;
 	position:absolute;
 	right:0;
 	top:0;
@@ -56,7 +50,7 @@ li.button a span{
 }
 
 /* Setting up different styles for each section color */
-
+/*
 li.button a.blue{background:url(img/blue.png) repeat-x top left; color:#074384;}
 li.button a.blue span{ background:url(img/blue.png) repeat-x top right;}
 
@@ -68,7 +62,7 @@ li.button a.orange span{ background:url(img/orange.png) repeat-x top right;}
 
 li.button a.red{background:url(img/red.png) repeat-x top left; color:#641603;}
 li.button a.red span{ background:url(img/red.png) repeat-x top right;}
-
+*/
 /* The hover effects */
 
 li.button a:hover{ background-position:bottom left;}
@@ -93,36 +87,11 @@ li.button a:hover span{ background-position:bottom right;}
 
 /* The styles below are only necessary for the demo page */
 
-h1{
-	font-family:"Myriad Pro",Arial,Helvetica,sans-serif;
-	font-size:36px;
-	font-weight:normal;
-	margin-bottom:15px;
-}
 
-h2{
-	font-family:"Myriad Pro",Arial,Helvetica,sans-serif;
-	font-size:12px;
-	font-weight:normal;
-	padding-right:140px;
-	right:0;
-	text-align:right;
-	text-transform:uppercase;
-	top:15px;
-}
 
 .clear{
 	clear:both;
 }
-
-#main{
-	/* The main container */
-	margin:15px auto;
-	text-align:center;
-	width:920px;
-	position:relative;
-}
-
 a, a:visited {
 	color:#0196e3;
 	text-decoration:none;
@@ -133,8 +102,4 @@ a:hover{
 	text-decoration:underline;
 }
 
-p{
-	/* The tut info on the bottom of the page */
-	padding:10px;
-	text-align:center;
-}
+

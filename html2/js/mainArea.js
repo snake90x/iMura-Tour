@@ -7,7 +7,7 @@ $(document).ready(function(){
         $(anchor.attr('href')).remove();
         $(this).parent().remove();
         if( $('#tabs li').size()==0){
-          $('#Help').click()
+          helpButton();
         }    
   });
 });

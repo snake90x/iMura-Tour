@@ -2,7 +2,6 @@ $(document).ready(main);
 
 function main() {
 	$.ajax({
-		 
 		method: 'GET',
 		url: 'database.json',
 		success: function(d) {
