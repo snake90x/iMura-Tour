@@ -19,15 +19,15 @@
           <script src="js/menu.js"></script>
      </head>
      <body class="cbp-spmenu-push">
-          <div class="container-fluid">
-               <nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3"><!-- inizio menu login a scomparsa -->
+          <div class="container-fluid"><!-- inizio menu login a scomparsa -->
+               <nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
                     <h3>Login</h3>
                     <button type="button" class="btn btn-default" id="log_but">Login</button>
                     <input type="text" class="form-control" placeholder="Inserire nome" aria-describedby="basic-addon1">
                     <input type="text" class="form-control" placeholder="Inserire Cognome" aria-describedby="basic-addon1">
                     <input type="text" class="form-control" placeholder="Inserire eMail" aria-describedby="basic-addon1">
-               </nav><!-- fine menu login a scomparsa -->
-          </div>
+               </nav>
+          </div><!-- fine menu login a scomparsa -->
           <div class="container-fluid"><!-- Inizio jumbotron -->
                <div id="logo" class="jumbotron">
                     <img src="logo2.png" style="margin-right:15%;margin-left:15%;" alt="company logo" width="380" height="85" />
@@ -42,7 +42,6 @@
                </div>
           </div><!-- fine fumbotron -->
           <!-- INIZIO DI PUSH MENU-->
-
           <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
                <ul class="container-fluid"><!-- inizio container accordion-->
                     <li class="menu"> <!-- inizio primo menu -->
@@ -57,32 +56,33 @@
                     </li><!-- Fine primo menu -->
                     <li class="menu"><!-- inizio secondo menu -->
                          <ul>
-                              <li class="button"><a href="#" class="orange">Oranges <span></span></a></li>
+                              <li class="button"><a href="#" class="orange">Annotazioni Documento<span></span></a></li>
                               <li class="dropdown"><!-- inizio secondo contenuto menu -->
                                    <ul>
-                                        <li><a href="#" onclick="$('.button a:last').click();return false;">Open Last Section</a></li>
-                                        <li><a href="http://en.wikipedia.org/wiki/Orange_%28fruit%29">Wikipedia Page</a></li>
-                                        <li><a href="http://www.flickr.com/search/?w=all&amp;q=oranges&amp;m=text">Flickr Photos</a></li>
+                                        <li><a href="#" onclick="$('.button a:last').click();return false;" id="hasAuthor">Autori</a></li>
+                                        <li><a href="#" onclick="" id="hasPublicationYear">Anno di pubblicazione</a></li>
+                                        <li><a href="#" onclick="" id="hasTitle">Titolo</a></li>
+                                        <li><a href="#" onclick="" id="hasDOI">DOI</a></li>
+                                        <li><a href="#" onclick="" id="hasURL">URL</a></li>
                                    </ul>
                               </li><!-- Fine secondo contenuto menu -->
                          </ul>
                     </li><!-- Fine secondo menu -->
                     <li class="menu"><!-- inizio terzo menu -->
                          <ul>
-                              <li class="button"><a href="#" class="blue">Grapes <span></span></a></li>
+                              <li class="button"><a href="#" class="blue">Annotazioni Frammento<span></span></a></li>
                               <li class="dropdown"><!-- inizio contenuto terzo menu -->
                                    <ul>
-                                        <li><a href="http://en.wikipedia.org/wiki/Grapes">Wiki page</a></li>
-                                        <li>Text label 1</li>
-                                        <li>Text label 2</li>
-                                        <li><a href="http://www.flickr.com/search/?w=all&amp;q=grapes&amp;m=text">Flickr Stream</a></li>
+                                        <li><a href="#" onclick="" id="hasComment">Commenti</a></li>
+                                        <li><a href="#" onclick="" id="denotesRethoric">Retorica</a></li>
+                                        <li><a href="#" onclick="" id="cites">Citazione</a></li>
                                    </ul>
                               </li><!-- fine contenuto terzo menu -->
                          </ul>
                     </li><!-- Fine terzo menu -->
                     <li class="menu"><!-- inizio quarto menu -->
                          <ul>
-                              <li class="button"><a href="#" class="red">Strawberries <span></span></a></li>
+                              <li class="button"><a href="#" class="red">Filtri<span></span></a></li>
                               <li class="dropdown"><!-- inizio contenuto quarto menu -->
                                    <ul>
                                         <li><a href="http://en.wikipedia.org/wiki/Strawberry">Wiki page</a></li>
@@ -92,8 +92,18 @@
                               </li><!-- Fine contenuto quarto menu -->
                          </ul>
                     </li><!-- Fine quarto menu -->
+                   <li class="menu"><!-- inizio quinto menu -->
+                         <ul>
+                              <li class="button"><a href="#" class="red">Le tue annotazioni<span></span></a></li>
+                              <li class="dropdown"><!-- inizio contenuto quinto menu -->
+                                   <ul id="new_ann">
+                                    <!-- Lista dinamica delle nuove annotazioni create dall'utente -->
+                                   </ul>
+                              </li><!-- Fine contenuto quinto menu -->
+                         </ul>
+                    </li><!-- Fine quinto menu -->
                </ul>
-          </nav><!-- FINE NAV-->
+          </nav><!-- FINE Menu push-->
           <div id="mainArea" class="container-fluid"> <!-- Inizio div mainArea -->
                <ul class="nav nav-tabs" id="tabs"><!-- lista tab-nav -->
                     <li class="active"><a href="#tab_help" data-toggle="tab"><h6>Tab Help</h6></a><span>X</span></li>

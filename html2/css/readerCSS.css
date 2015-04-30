@@ -58,7 +58,7 @@ position: relative;
 #contentmain{
     background-color: floralwhite;
     height: 34.06em;
-    overflow-y: scroll;
+    overflow: auto;
 }
 .tab-pane{
      /*overflow-y: scroll;*/
