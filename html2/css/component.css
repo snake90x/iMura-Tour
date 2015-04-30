@@ -5,19 +5,22 @@
 }
 
 .cbp-spmenu input {
-     float: left;
-     position: relative;
+    float: left;
+    position: relative;
 	width: 25%;
-     margin-right: 2em;
+    margin-right: 2em;
+    margin-left: 1em;
+    margin-top: 0.3em;
+    
 }
 
 .cbp-spmenu h3 {
-	color: #afdefa;
-	font-size: 1.9em;
-     text-align: center;
+	font-size: 2em;
+    text-align: center;
 	margin: 0;
 	font-weight: 300;
-	background: #0d77b6;
+	background-color: cadetblue;
+    color: darkorange;
 }
 
 .cbp-spmenu a {

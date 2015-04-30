@@ -9,10 +9,13 @@
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
           <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
           <script src="js/bootstrap.min.js"></script>
+          <script src="js/bootstrap-dialog.js"></script>
+          <link rel="stylesheet" type="text/css" href="css/bootstrap-dialog.css" />
           <link rel="stylesheet" type="text/css" href="css/demo.css" />
           <script type="text/javascript" src="js/script.js"></script>
           <script src="js/main.js"></script>
           <script src="js/mainArea.js"></script>
+          <script src="js/widgets.js"></script>
           <link rel="stylesheet" type="text/css" href="css/component.css" />
           <script src="js/modernizr.custom.js"></script>
           <script src="js/classie.js"></script>
@@ -21,8 +24,8 @@
      <body class="cbp-spmenu-push">
           <div class="container-fluid"><!-- inizio menu login a scomparsa -->
                <nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
-                    <h3>Login</h3>
-                    <button type="button" class="btn btn-default" id="log_but">Login</button>
+                    <h3>Login -></h3>
+                    <button type="button" class="btn btn-warning" id="log_but">Login</button>
                     <input type="text" class="form-control" placeholder="Inserire nome" aria-describedby="basic-addon1">
                     <input type="text" class="form-control" placeholder="Inserire Cognome" aria-describedby="basic-addon1">
                     <input type="text" class="form-control" placeholder="Inserire eMail" aria-describedby="basic-addon1">
@@ -41,16 +44,13 @@
                     <img src="img/login.png" id="login_icon" style="float:right; margin-top: 6px;" alt="Identificati muratore" width="64" height="64" />
                </div>
           </div><!-- fine fumbotron -->
-          <!-- INIZIO DI PUSH MENU-->
-          <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+          <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1"><!-- INIZIO DI PUSH MENU-->
                <ul class="container-fluid"><!-- inizio container accordion-->
                     <li class="menu"> <!-- inizio primo menu -->
                          <ul>
                               <li class="button"><a href="#" class="green">Documenti<span></span></a></li>
                               <li class="dropdown"> <!-- contenuto primo menu -->
-                                   <ul id="doclist">
-                                        <li><a href="#" onclick="$('.button a').eq(2).click();return false;">Open Grapes Section</a></li>
-                                   </ul>
+                                   <ul id="doclist"></ul>
                               </li><!-- Fine contenuto primo menu -->
                          </ul>
                     </li><!-- Fine primo menu -->
@@ -59,11 +59,11 @@
                               <li class="button"><a href="#" class="orange">Annotazioni Documento<span></span></a></li>
                               <li class="dropdown"><!-- inizio secondo contenuto menu -->
                                    <ul>
-                                        <li><a href="#" onclick="$('.button a:last').click();return false;" id="hasAuthor">Autori</a></li>
-                                        <li><a href="#" onclick="" id="hasPublicationYear">Anno di pubblicazione</a></li>
-                                        <li><a href="#" onclick="" id="hasTitle">Titolo</a></li>
-                                        <li><a href="#" onclick="" id="hasDOI">DOI</a></li>
-                                        <li><a href="#" onclick="" id="hasURL">URL</a></li>
+                                        <li><a href="#" onclick="openWidget($(this).attr('id'))" id="hasAuthor">Autori</a></li>
+                                        <li><a href="#" onclick="openWidget($(this).attr('id'))" id="hasPublicationYear">Anno di pubblicazione</a></li>
+                                        <li><a href="#" onclick="openWidget($(this).attr('id'))" id="hasTitle">Titolo</a></li>
+                                        <li><a href="#" onclick="openWidget($(this).attr('id'))" id="hasDOI">DOI</a></li>
+                                        <li><a href="#" onclick="openWidget($(this).attr('id'))" id="hasURL">URL</a></li>
                                    </ul>
                               </li><!-- Fine secondo contenuto menu -->
                          </ul>
@@ -73,9 +73,9 @@
                               <li class="button"><a href="#" class="blue">Annotazioni Frammento<span></span></a></li>
                               <li class="dropdown"><!-- inizio contenuto terzo menu -->
                                    <ul>
-                                        <li><a href="#" onclick="" id="hasComment">Commenti</a></li>
-                                        <li><a href="#" onclick="" id="denotesRethoric">Retorica</a></li>
-                                        <li><a href="#" onclick="" id="cites">Citazione</a></li>
+                                        <li><a href="#" onclick="openWidget($(this).attr('id'))" id="hasComment">Commenti</a></li>
+                                        <li><a href="#" onclick="openWidget($(this).attr('id'))" id="denotesRethoric">Retorica</a></li>
+                                        <li><a href="#" onclick="openWidget($(this).attr('id'))" id="cites">Citazione</a></li>
                                    </ul>
                               </li><!-- fine contenuto terzo menu -->
                          </ul>
