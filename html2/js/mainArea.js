@@ -11,10 +11,10 @@ $(document).ready(function(){
         }    
   });
 });
-function openDocs (docurl, doclabel) {
+function openDocs (docCont, doclabel) {
     console.log("dentro opendocs")
     //gestisce la creazione e l'attivazione delle nuove tab e del loro contenuto, parametro corrisponde all'url del documento
-    var url = docurl,
+    var content = docCont,
         label=doclabel,
         tabExist = false;
 
@@ -28,8 +28,9 @@ function openDocs (docurl, doclabel) {
         // create the tab
         $('<li><a href="#tab-'+id+'" data-toggle="tab"><h6>'+label+'</h6></a><span>X</span></li>').appendTo('#tabs');
         // create the tab content
-        $('#contentmain').append('<div class="tab-pane" id="tab-'+id+'"><p>'+label+' content</p></div>');
+        $('#contentmain').append('<div class="tab-pane" id="tab-'+id+'"></div>');
         // make the new tab active
+        $('#tab-'+id).html(content);
         $('#tabs a:last').tab('show');
         id++;
     }

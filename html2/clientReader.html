@@ -14,6 +14,7 @@
           <link rel="stylesheet" type="text/css" href="css/demo.css" />
           <script type="text/javascript" src="js/script.js"></script>
           <script src="js/main.js"></script>
+          <script src="js/annotations.js"></script>
           <script src="js/mainArea.js"></script>
           <script src="js/widgets.js"></script>
           <link rel="stylesheet" type="text/css" href="css/component.css" />
@@ -49,7 +50,7 @@
                     <li class="menu"> <!-- inizio primo menu -->
                          <ul>
                               <li class="button"><a href="#" class="green">Documenti<span></span></a></li>
-                              <li class="dropdown"> <!-- contenuto primo menu -->
+                              <li class="dropdown" style="height:25em;"> <!-- contenuto primo menu -->
                                    <ul id="doclist"></ul>
                               </li><!-- Fine contenuto primo menu -->
                          </ul>
@@ -57,7 +58,7 @@
                     <li class="menu"><!-- inizio secondo menu -->
                          <ul>
                               <li class="button"><a href="#" class="orange">Annotazioni Documento<span></span></a></li>
-                              <li class="dropdown"><!-- inizio secondo contenuto menu -->
+                              <li class="dropdown" style="height:25em;"><!-- inizio secondo contenuto menu -->
                                    <ul>
                                         <li><a href="#" onclick="openWidget($(this).attr('id'))" id="hasAuthor">Autori</a></li>
                                         <li><a href="#" onclick="openWidget($(this).attr('id'))" id="hasPublicationYear">Anno di pubblicazione</a></li>
@@ -71,7 +72,7 @@
                     <li class="menu"><!-- inizio terzo menu -->
                          <ul>
                               <li class="button"><a href="#" class="blue">Annotazioni Frammento<span></span></a></li>
-                              <li class="dropdown"><!-- inizio contenuto terzo menu -->
+                              <li class="dropdown" style="height: 15em;"><!-- inizio contenuto terzo menu -->
                                    <ul>
                                         <li><a href="#" onclick="openWidget($(this).attr('id'))" id="hasComment">Commenti</a></li>
                                         <li><a href="#" onclick="openWidget($(this).attr('id'))" id="denotesRethoric">Retorica</a></li>
@@ -83,19 +84,25 @@
                     <li class="menu"><!-- inizio quarto menu -->
                          <ul>
                               <li class="button"><a href="#" class="red">Filtri<span></span></a></li>
-                              <li class="dropdown"><!-- inizio contenuto quarto menu -->
-                                   <ul>
-                                        <li><a href="http://en.wikipedia.org/wiki/Strawberry">Wiki page</a></li>
-                                        <li><a href="http://www.flickr.com/photos/mojeecat/368540120/">Strawberry Pie</a></li>
-                                        <li><a href="http://www.flickr.com/search/?w=all&amp;q=strawberries&amp;m=text">Photo Stream</a></li>
-                                   </ul>
+                              <li class="dropdown" style="height: 8em;"><!-- inizio contenuto quarto menu -->
+                                    <form role="form">
+                                        <div class="checkbox">
+                                          <label for="comment_fltr">Commenti</label><input type="checkbox" value="hasComment" id="comment_fltr">
+                                        </div>
+                                        <div class="checkbox">
+                                          <label for="rethoric_fltr">Retorica</label><input type="checkbox" value="denotesRethoric" id="rethoric_fltr">
+                                        </div>
+                                        <div class="checkbox disabled">
+                                          <label for="cites_fltr">Citazioni</label><input type="checkbox" value="cites" id="cites_fltr">
+                                        </div>
+                                    </form>
                               </li><!-- Fine contenuto quarto menu -->
                          </ul>
                     </li><!-- Fine quarto menu -->
                    <li class="menu"><!-- inizio quinto menu -->
                          <ul>
                               <li class="button"><a href="#" class="red">Le tue annotazioni<span></span></a></li>
-                              <li class="dropdown"><!-- inizio contenuto quinto menu -->
+                              <li class="dropdown" style="height: 15em;"><!-- inizio contenuto quinto menu -->
                                    <ul id="new_ann">
                                     <!-- Lista dinamica delle nuove annotazioni create dall'utente -->
                                    </ul>

@@ -66,6 +66,18 @@ position: relative;
      /*overflow-y: scroll;*/
 }
 body {
-    background-color: #ffffff;
-     
+    background-color: #ffffff;   
+}
+
+.edit-denotesRethoric {
+	padding: 2px;
+	border: dotted #d58512; 3px;			
+}
+.edit-hasComment {
+	background-color: #7be0fe;	
+	color: white;		
+}
+.edit-cites {
+	background-color: #77d477;			
+	color: white;		
 }

@@ -9,14 +9,25 @@ function main() {
                 var url=d[i].url,
                     label=d[i].label;
                 console.log(url, label)
-				$('#doclist').append("<li><a href='#' onclick='openDocs(\""+url+"\", \""+label+"\");return false;'>"+d[i].label+"</a></li>");
+				$('#doclist').append("<li><a href='#' onclick='load(\""+url+"\", \""+label+"\");return false;'>"+d[i].label+"</a></li>");
 			}
             openWidget('docSucc');
 		},
 		error: function(a,b,c) {
 			openWidget('docFail');
-		}
-
+        }
 	});
-	
+}
+
+function load(file, label){
+    $.ajax({
+        method:'GET',
+        url:file,
+        success: function(d){
+            openDocs(d,label);
+        },
+        error: function(a,b,c){
+            openWidget('docFail');
+        }
+    });
 }
