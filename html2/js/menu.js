@@ -21,8 +21,10 @@ function helpButton(){
 $(document).ready(function(){
      var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
         menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+        menuTop2 = document.getElementById( 'cbp-spmenu-s2' ),
         showLeftPush = document.getElementById( 'menu_icon' ),
         showTop = document.getElementById( 'login_icon' ),
+        showTop2 = document.getElementById( 'src_icon' ),
         body = document.body;
     
         showTop.onclick = function() {
@@ -32,8 +34,16 @@ $(document).ready(function(){
         disableOther( 'showTop' );
         console.log("Click")
      };
+    
+    showTop2.onclick = function() {
+        console.log("Click")
+        classie.toggle( this, 'active' );
+        classie.toggle( menuTop2, 'cbp-spmenu-open' );
+        disableOther( 'showTop' );
+        console.log("Click")
+     };
      
-     showLeftPush.onclick = function() {
+     showLeftPush.onmouseover = function() {
         classie.toggle( this, 'active' );
         classie.toggle( body, 'cbp-spmenu-push-toright' );
         classie.toggle( menuLeft, 'cbp-spmenu-open' );
@@ -45,8 +55,12 @@ $(document).ready(function(){
         if( button !== 'showTop' ) {
             showTop.disabled = true;
         }
+              
         if( button !== 'showLeftPush' ) {
             showLeftPush.disabled = true;
+        }
+      if( button !== 'showTop2' ) {
+            showTop2.disabled = true;
         }
      }
 });
