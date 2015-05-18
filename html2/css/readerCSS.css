@@ -5,13 +5,13 @@
  float: right; 
  }
 #log_but{
-    float:right;
+
     margin-right: 1em;
     margin-top: 0.3em;
     color: #afdefa;
 }
-#logo{
-position: relative;
+#images{
+position:inherit;
 /*float: left;*/
 }
 
@@ -21,30 +21,52 @@ position: relative;
      float: right;
 }
 
+.menu-laterale{
+/*background-color: rgba(241, 218, 187, 0.99);*/
+background-image:url(/pattern8.png);
+     opacity: 0.8;
+}
+.menu-login{
+     max-height:30em;
+     max-width: 10em;
+
+    
+
+}
+
 .jumbotron{
      padding: 1em 0;
-     background-color: rgba(229, 184, 125, 0.52);
-     margin-top:15px;
+    //*background-color: rgba(229, 184, 125, 0.52);*/
+    /* margin-top:1em;*/
+     margin-bottom: 1em ;
 }
 
 #mainArea{
 	width: auto;
-	height: 34.06em;
-	font-size: 0.87em;
-	padding: 0.31em 0.31em;
+	height: 35em;
+	/*font-size: 0.87em;
+	*/
+     margin-left: 10px;
      
 	
 }
 
+#tabs{
+     
+}
 #tabs > li {
     position:relative;  
-     
+      text-overflow:ellipsis;
 }
 
 #tabs > li > a {
     display:inline-block;
+     padding: 2px 11px;
 }
+.tab-content{
 
+overflow-x: hidden;
+}
 #tabs > li > span { /* css della croce di rimozione tab*/
     display:none;
     cursor:pointer;
@@ -58,15 +80,18 @@ position: relative;
     display: inline-block;
 }
 #contentmain{
-    background-color: floralwhite;
-    height: 34.06em;
-    overflow: auto;
+    height: 100%;
+     width:100%;
+    float:right;
+    overflow-y: auto;
+     font-size:1em;
 }
 .tab-pane{
+    margin-left: 15px;
      /*overflow-y: scroll;*/
 }
 body {
-    background-color: #ffffff;   
+    /*background-color: #E1E3E4;  */ 
 }
 
 .edit-denotesRethoric {
